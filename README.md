@@ -1,4 +1,4 @@
-# DaPortfolio v4.0
+# Da'portfolio
 
 Portfolio website built with Next.js App Router.
 
@@ -24,6 +24,11 @@ Portfolio website built with Next.js App Router.
 - `src/content/certificates/certificates.md` stores certificate index and category files
 - `src/content/projects/config.ts` stores project category order
 - `src/content/certificates/config.ts` stores certificate category order
+- `public/llms.txt` stores the public AI-readable portfolio summary served at `/llms.txt`
+
+When updating profile, project, certificate, or public contact content, keep
+`public/llms.txt` aligned and exclude sensitive details such as phone numbers,
+secret values, local paths, private plans, and access credentials.
 
 ## Scripts
 

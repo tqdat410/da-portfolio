@@ -31,6 +31,12 @@
 - Projects showcase cards: `src/content/site/projects.ts`
 - Contact + social links: `src/content/site/contact.ts`
 
+## Update AI-readable content
+
+- Public LLM summary: `public/llms.txt`
+- Keep it aligned when profile, project, certificate, or public contact content changes.
+- Exclude sensitive details such as phone numbers, secret values, local paths, private plans, and access credentials.
+
 ## Notes
 
 - Primary brand colors are centralized in `src/app/globals.css` via:
