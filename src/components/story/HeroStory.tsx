@@ -6,7 +6,7 @@ import MetaBalls from "@/components/animations/MetaBalls";
 export function HeroStory() {
   const hero = content.hero;
   const introTop = "Hi, this is Tran Quoc Dat's site,";
-  const introBottom = "where you can explore his projects, background, and experience.";
+  const introBottom = "where you can explore my projects, background, and experience.";
   const blendStyle = {
     mixBlendMode: "difference",
     WebkitMixBlendMode: "difference",

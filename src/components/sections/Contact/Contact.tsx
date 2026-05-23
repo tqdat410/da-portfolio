@@ -17,10 +17,7 @@ export function Contact() {
     { label: 'LinkedIn', value: 'tqdat410', href: social.linkedin, mobile: true },
     { label: 'Facebook', value: 'tqdat410', href: social.facebook, mobile: false },
     { label: 'X', value: '@trandat40', href: social.x, mobile: false },
-    { label: 'Instagram', value: '@datdatdat_410', href: social.instagram, mobile: false },
     { label: 'Telegram', value: '@tqdat410', href: social.telegram, mobile: false },
-    { label: 'Upwork', value: 'tqdat410', href: social.upwork, mobile: false },
-    { label: 'Reddit', value: 'u/Fun_Pudding818', href: social.reddit, mobile: false },
     { label: 'Discord', value: 'tqdat410', href: social.discord, mobile: false },
     { label: 'Linktree', value: 'tqdat410', href: contactInfo.linktree, mobile: true },
   ].filter(link => link.href && link.href.length > 0);

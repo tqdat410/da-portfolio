@@ -12,7 +12,7 @@ export const about: AboutContent = {
         school: "FPT University",
         degree: "Software Engineering",
         year: "2022 - 2026",
-        gpa: "GPA: 3.6/4.0",
+        gpa: "GPA: 3.75/4.0",
       },
     ],
   },
@@ -33,7 +33,7 @@ export const about: AboutContent = {
       },
       {
         title: "AI Usage",
-        items: ["Claude Code", "Codex", "Antigravity"],
+        items: ["Claude Code", "Codex"],
       },
       {
         title: "Others",

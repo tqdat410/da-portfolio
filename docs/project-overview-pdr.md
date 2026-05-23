@@ -40,7 +40,7 @@ DaPortfolio v4.0 is a modern, high-performance personal portfolio website featur
 | About Section | Biography, education, skills, certificates | Critical |
 | Projects | Portfolio grid + SAP-style list/detail view | Critical |
 | Certificates | SAP-style certificates page with detail view | High |
-| Contact | Contact form, email, 12 social links + Linktree | Critical |
+| Contact | Contact channels with email, phone, key social links, and Linktree | Critical |
 | Footer | Author name display | High |
 | Water Effects | GPU-based fluid simulation with ripples | High |
 | Particle Systems | Ambient floating + rain particles | High |
@@ -114,7 +114,7 @@ Single-source TypeScript file containing:
 - About section (bio, location, education, skills, certificates)
 - Projects (10 portfolio items with metadata)
 - Certificates (portfolio items with metadata)
-- Contact information (email, phone, 12 social platforms including Linktree)
+- Contact information (email, phone, key social platforms, and Linktree)
 
 ### Design System (Silver Mist)
 
@@ -147,7 +147,7 @@ Layout Root
 │   ├── Projects Section
 │   │   └── Project Cards
 │   ├── Contact Section
-│   │   └── 12 Social Links (Email, Phone, GitHub, LinkedIn, Facebook, X, Instagram, Telegram, Upwork, Reddit, Discord, Linktree)
+│   │   └── Contact Links (Email, Phone, GitHub, LinkedIn, Facebook, X, Telegram, Discord, Linktree)
 │   └── Footer
 ├── ProjectsPage (/projects)
 │   ├── ProjectListPanel

@@ -47,4 +47,12 @@ describe("Contact Section", () => {
     expect(backgroundLayer).toHaveClass("group-hover:scale-x-100");
     expect(backgroundLayer).toHaveClass("group-hover:scale-y-100");
   });
+
+  it("does not render removed contact channels", () => {
+    render(<Contact />);
+
+    expect(screen.queryByText(/Instagram\s*:/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Upwork\s*:/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Reddit\s*:/i)).not.toBeInTheDocument();
+  });
 });

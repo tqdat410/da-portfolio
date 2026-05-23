@@ -15,27 +15,31 @@ interface IntroSegment {
 }
 
 const introSegments: IntroSegment[] = [
-  { type: "text", value: "I am " },
+  { type: "text", value: "I'm " },
   { type: "highlight", value: "Tran Quoc Dat" },
-  { type: "text", value: ", a final-year Software Engineering student at " },
+  { type: "text", value: ", a Software Engineering graduate from " },
   { type: "highlight", value: "FPT University" },
-  { type: "text", value: " based in " },
+  { type: "text", value: ", based in " },
   { type: "highlight", value: "Ho Chi Minh City" },
   {
     type: "text",
     value:
-      ". I build practical digital products across web, mobile, and enterprise platforms while using ",
+      ". I build practical web, mobile, and enterprise products, with hands-on ",
+  },
+  { type: "highlight", value: "SAP" },
+  {
+    type: "text",
+    value: " experience across ABAP, RAP, Fiori, and UI5. I use ",
   },
   { type: "highlight", value: "AI Tools" },
   {
     type: "text",
-    value: " to improve delivery speed and engineering quality. I currently contribute as a ",
+    value: " to move faster while keeping the work clean and reliable. I currently work as a ",
   },
   { type: "highlight", value: "Software Engineer" },
   {
     type: "text",
-    value:
-      ", connecting practical product thinking with reliable delivery across modern web and enterprise systems.",
+    value: ", focused on turning ideas into useful products people can actually use.",
   },
 ];
 
@@ -306,7 +310,7 @@ export function About() {
             >
               {showTerminal && (
                 <>
-                  <p className="text-[#9aa3ad]">Last login: Tue Feb 18 09:41:23 on ttys000</p>
+                  <p className="text-[#9aa3ad]">Last login: Sat May 23 11:02:40 on ttys000</p>
 
               <div>
                 <p>
@@ -375,7 +379,7 @@ export function About() {
                   </p>
                   {showVersionOutput && (
                     <p className="mt-2 text-[var(--brand-fg)]">
-                      v4.0.0
+                      v0.4.2
                     </p>
                   )}
                 </div>

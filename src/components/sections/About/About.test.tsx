@@ -193,6 +193,7 @@ describe("About Section", () => {
     expect(screen.getByText("Tran Quoc Dat")).toBeInTheDocument();
     expect(screen.getByText("FPT University")).toBeInTheDocument();
     expect(screen.getByText("Ho Chi Minh City")).toBeInTheDocument();
+    expect(screen.getByText("SAP")).toBeInTheDocument();
     expect(screen.getByText("AI Tools")).toBeInTheDocument();
     expect(screen.getByText("Software Engineer")).toBeInTheDocument();
     expect(screen.queryByText("SAP Technical Consultant")).not.toBeInTheDocument();
@@ -211,7 +212,7 @@ describe("About Section", () => {
   it("renders command result text", () => {
     render(<About />);
     expect(screen.getByText(/added 1 package, and audited 1 package in 88ms/i)).toBeInTheDocument();
-    expect(screen.getByText("v4.0.0")).toBeInTheDocument();
+    expect(screen.getByText("v0.4.2")).toBeInTheDocument();
     expect(screen.getByText("[ PROFILE ]")).toBeInTheDocument();
     expect(screen.getByText("[ CERTIFICATES ]")).toBeInTheDocument();
     expect(screen.getByText(/\[ok\] completed/i)).toBeInTheDocument();
@@ -221,7 +222,7 @@ describe("About Section", () => {
     render(<About />);
     expect(screen.getByText(/Name:\s*Tran Quoc Dat/i)).toBeInTheDocument();
     expect(screen.getByText("FPT University")).toBeInTheDocument();
-    expect(screen.getByText("GPA: 3.6/4.0")).toHaveClass("font-semibold");
+    expect(screen.getByText("GPA: 3.75/4.0")).toHaveClass("font-semibold");
     expect(
       screen.getByText(new RegExp(`${expectedCourseraTotal}\\+\\s*Coursera\\s*Certificates`, "i"))
     ).toBeInTheDocument();
@@ -244,9 +245,10 @@ describe("About Section", () => {
       screen.getByText((_, element) => element?.tagName === "P" && /Core:\s*ABAP, Java, SpringBoot/i.test(element.textContent ?? ""))
     ).toBeInTheDocument();
     const aiUsageLine = screen.getByText(
-      (_, element) => element?.tagName === "P" && /AI Usage:\s*Claude Code, Codex, Antigravity/i.test(element.textContent ?? "")
+      (_, element) => element?.tagName === "P" && /AI Usage:\s*Claude Code, Codex/i.test(element.textContent ?? "")
     );
     expect(aiUsageLine).toBeInTheDocument();
+    expect(aiUsageLine).not.toHaveTextContent("Antigravity");
     expect(
       screen.getByText((_, element) =>
         element?.tagName === "P" &&
@@ -364,6 +366,11 @@ describe("About Section", () => {
 
     expect(await screen.findByText("11 contributions in 2025")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "2025" })).toHaveAttribute("aria-pressed", "true");
-    expect(screen.getByLabelText("9 contributions on Feb 8, 2025.")).toBeInTheDocument();
+    const peakDayCell = screen.getByLabelText("9 contributions on Feb 8, 2025.");
+    expect(peakDayCell).toBeInTheDocument();
+    expect(peakDayCell).toHaveClass(
+      "h-[var(--contribution-cell-size)]",
+      "w-[var(--contribution-cell-size)]"
+    );
   });
 });

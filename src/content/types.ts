@@ -82,10 +82,7 @@ export interface SocialLinks {
   linkedin: string;
   facebook: string;
   x: string;
-  instagram: string;
   telegram: string;
-  upwork: string;
-  reddit: string;
   discord: string;
 }
 

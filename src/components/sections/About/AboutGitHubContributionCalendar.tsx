@@ -80,8 +80,8 @@ export function AboutGitHubContributionCalendar() {
 
   return (
     <div className="mt-12 mb-24 md:mt-16">
-      <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_88px]">
-        <div>
+      <div className="grid min-w-0 items-start gap-4 lg:grid-cols-[minmax(0,1fr)_88px]">
+        <div className="min-w-0">
           {snapshot && !isLoading ? (
             <AboutGitHubContributionCalendarGrid snapshot={snapshot} year={selectedYear} />
           ) : (

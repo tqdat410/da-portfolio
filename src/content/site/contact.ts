@@ -12,9 +12,6 @@ export const social: SocialLinks = {
   linkedin: "https://www.linkedin.com/in/tqdat410",
   facebook: "https://www.facebook.com/tqdat410",
   x: "https://x.com/trandat40",
-  instagram: "https://www.instagram.com/datdatdat_410",
   telegram: "https://t.me/tqdat410",
-  upwork: "https://www.upwork.com/freelancers/~0166de7b3633a9b092",
-  reddit: "https://www.reddit.com/user/Fun_Pudding818",
   discord: "https://discordapp.com/users/395901398509682688",
 };

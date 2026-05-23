@@ -60,7 +60,7 @@ RootLayout (src/app/layout.tsx)
           │   └── ProjectModal (Quick view)
           ├── Contact
           │   ├── AnimatedWaterCanvas
-          │   └── SocialLinks (12 platforms including Linktree)
+          │   └── SocialLinks (6 platforms) plus email, phone, and Linktree in Contact
           └── Footer
       ├── ProjectsPage (/projects)
       │   ├── ProjectListPanel

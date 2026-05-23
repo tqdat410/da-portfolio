@@ -54,7 +54,7 @@ Key features:
 - [x] About section with skills grid
 - [x] Projects section with cards
 - [x] GitHub contribution calendar embedded under the About terminal with GraphQL data
-- [x] Contact section with 12 social links + Linktree
+- [x] Contact section with 6 social platforms + email, phone, and Linktree
 - [x] Icon component library (added LinkIcon)
 - [x] Footer component (simplified to author name)
 - [x] SAP-style Projects page with FCL
