@@ -53,6 +53,14 @@ categories:
         url: "https://drive.google.com/file/d/1y6nn5eKmn-MTszIEyjBjVFxPtTvGHQDh/view?usp=drive_link"
   - name: "FPT University"
     items:
+      - name: "honorable-student-spring-2026.pdf"
+        title: "Honorable Student of Trimester Spring 2026"
+        provider: "FPT University"
+        url: ""
+      - name: "excellent-student-fall-2025.pdf"
+        title: "Excellent Student of Trimester Fall 2025"
+        provider: "FPT University"
+        url: "https://drive.google.com/file/d/1alpxGELggqs9BRp9TQOawb73H2XErJ1q/view?usp=sharing"
       - name: "academic-preparatory-english-trs601-english-6.pdf"
         title: "Academic Preparatory English TRS601 - English 6"
         provider: "FPT University"
@@ -119,6 +127,8 @@ This folder is the structured record of my learning credentials.
 
 | File | Certificate | Provider | URL |
 | --- | --- | --- | --- |
+| `honorable-student-spring-2026.pdf` | Honorable Student of Trimester Spring 2026 | FPT University | - |
+| `excellent-student-fall-2025.pdf` | Excellent Student of Trimester Fall 2025 | FPT University | https://drive.google.com/file/d/1alpxGELggqs9BRp9TQOawb73H2XErJ1q/view?usp=sharing |
 | `academic-preparatory-english-trs601-english-6.pdf` | Academic Preparatory English TRS601 - English 6 | FPT University | https://drive.google.com/file/d/1jTybdSmPYCcGy0hIeYJevanrR37IxLhR/view?usp=drive_link |
 | `excellent-student-summer-2025.pdf` | Excellent Student of Trimester Summer 2025 | FPT University | https://drive.google.com/file/d/13d8QsVzA9DBx8UJp5ToV8_X07pI8ezNH/view?usp=drive_link |
 | `honorable-student-fall-2024.pdf` | Honorable Student of Trimester Fall 2024 | FPT University | https://drive.google.com/file/d/1K8zrg7ACfmWY-gO0COtzaFoDJqAU4GZC/view?usp=drive_link |

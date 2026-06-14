@@ -3,7 +3,7 @@
 import { content } from "@/content";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { useIsMobile } from "@/hooks/useMediaQuery";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
 interface ToolbarLinkProps {
   href: string;
@@ -41,55 +41,94 @@ interface CvDropdownProps {
 }
 
 function CvDropdown({ inverted = false }: CvDropdownProps) {
-  const textClass = inverted ? "text-[var(--brand-bg)]" : "text-[var(--brand-fg)]";
+  const [isOpen, setIsOpen] = useState(false);
+  const isMobile = useIsMobile();
+
+  // Color tokens
   const bgClass = inverted ? "bg-[var(--brand-bg)]" : "bg-[var(--brand-fg)]";
-  const activeTextClass = inverted
+  const triggerTextDefault = inverted ? "text-[var(--brand-bg)]" : "text-[var(--brand-fg)]";
+  const contrastText = inverted ? "text-[var(--brand-fg)]" : "text-[var(--brand-bg)]";
+
+  // Desktop hover classes (only applied on desktop)
+  const desktopHoverText = inverted
     ? "group-hover/cv:text-[var(--brand-fg)]"
     : "group-hover/cv:text-[var(--brand-bg)]";
-  const itemTextClass = inverted ? "text-[var(--brand-fg)]" : "text-[var(--brand-bg)]";
+
+  // Resolve trigger text class for mobile
+  const triggerTextClass = isMobile
+    ? isOpen ? contrastText : triggerTextDefault
+    : `${triggerTextDefault} ${desktopHoverText}`;
 
   return (
-    <div className="group/cv relative shrink-0 cursor-pointer font-luxurious-roman text-xs tracking-wide whitespace-nowrap md:text-lg">
-      {/* Invisible spacer — keeps trigger size in the toolbar flow */}
-      <div className="invisible px-1.5 py-2 md:px-4">download cv</div>
-
-      {/* Floating overlay — positioned on top of spacer, expands downward independently */}
-      <div className="absolute top-0 right-0 z-20">
-        {/* Single unified background */}
-        <span
-          className={`pointer-events-none absolute inset-0 origin-top scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/cv:scale-y-100 ${bgClass}`}
-        />
-
-        {/* Trigger text */}
+    <>
+      {/* Backdrop — covers entire screen to catch outside taps (mobile) */}
+      {isMobile && isOpen && (
         <div
-          className={`relative z-10 px-1.5 py-2 transition-colors duration-300 md:px-4 ${textClass} ${activeTextClass}`}
-        >
-          download cv
-        </div>
+          className="fixed inset-0 z-[60]"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
 
-        {/* Dropdown items */}
-        <div className="relative z-10 grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/cv:grid-rows-[1fr]">
-          <div className="overflow-hidden">
-            <a
-              href={content.hero.resumeUrls.visual}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`block px-1.5 py-2 transition-opacity duration-200 hover:opacity-60 md:px-4 ${itemTextClass}`}
-            >
-              Visual
-            </a>
-            <a
-              href={content.hero.resumeUrls.ats}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`block px-1.5 py-2 transition-opacity duration-200 hover:opacity-60 md:px-4 ${itemTextClass}`}
-            >
-              ATS.
-            </a>
+      <div className="group/cv relative shrink-0 cursor-pointer font-luxurious-roman text-xs tracking-wide whitespace-nowrap md:text-lg">
+        {/* Invisible spacer — reserves trigger space in toolbar flow */}
+        <div className="invisible px-1.5 py-2 md:px-4">download cv</div>
+
+        {/* Floating overlay — sits on top of spacer, expands down independently */}
+        <div className={`absolute top-0 left-0 md:left-auto md:right-0 ${isMobile && isOpen ? "z-[70]" : "z-20"}`}>
+          {/* Unified background */}
+          <span
+            className={`pointer-events-none absolute inset-0 origin-top transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+              isMobile
+                ? isOpen ? "scale-y-100" : "scale-y-0"
+                : "scale-y-0 group-hover/cv:scale-y-100"
+            } ${bgClass}`}
+          />
+
+          {/* Trigger text */}
+          <div
+            className={`relative z-10 px-1.5 py-2 transition-colors duration-300 md:px-4 ${triggerTextClass}`}
+            onClick={(e) => {
+              if (isMobile) {
+                e.preventDefault();
+                setIsOpen((prev) => !prev);
+              }
+            }}
+          >
+            download cv
+          </div>
+
+          {/* Dropdown items */}
+          <div
+            className={`relative z-10 grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+              isMobile
+                ? isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                : "grid-rows-[0fr] group-hover/cv:grid-rows-[1fr]"
+            }`}
+          >
+            <div className="overflow-hidden">
+              <a
+                href={content.hero.resumeUrls.visual}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`block px-1.5 py-1.5 transition-opacity duration-200 hover:opacity-60 md:px-4 md:py-2 ${contrastText}`}
+                onClick={() => setIsOpen(false)}
+              >
+                Visual
+              </a>
+              <a
+                href={content.hero.resumeUrls.ats}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`block px-1.5 py-1.5 transition-opacity duration-200 hover:opacity-60 md:px-4 md:py-2 ${contrastText}`}
+                onClick={() => setIsOpen(false)}
+              >
+                ATS.
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

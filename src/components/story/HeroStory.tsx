@@ -19,18 +19,20 @@ export function HeroStory() {
       aria-labelledby="hero-heading"
     >
       <div className="absolute inset-0 z-0">
-        <MetaBalls
-          color="#fafafa"
-          cursorBallColor="#fafafa"
-          cursorBallSize={2}
-          ballCount={30}
-          animationSize={30}
-          enableMouseInteraction={false}
-          enableTransparency={true}
-          hoverSmoothness={0.25}
-          clumpFactor={2}
-          speed={0.1}
-        />
+        <div className="hidden md:block absolute inset-0">
+          <MetaBalls
+            color="#fafafa"
+            cursorBallColor="#fafafa"
+            cursorBallSize={2}
+            ballCount={30}
+            animationSize={30}
+            enableMouseInteraction={false}
+            enableTransparency={true}
+            hoverSmoothness={0.25}
+            clumpFactor={2}
+            speed={0.1}
+          />
+        </div>
 
         <div className="absolute inset-0 flex pointer-events-none items-center justify-center px-6">
           <div className="w-full max-w-4xl text-center">

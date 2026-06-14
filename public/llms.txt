@@ -15,7 +15,7 @@
 
 ## Technical Skills
 
-- SAP: ABAP, SAP RAP, Fiori, UI5, OData, HANA, S/4HANA, RESTful APIs, AMC/APC, background jobs
+- SAP: ABAP, SAP RAP, Fiori, UI5, OData, HANA, S/4HANA, RESTful APIs, WebSocket, AMC/APC, background jobs
 - Backend: Java, Spring Boot, microservices, REST APIs, Kafka, Redis
 - Frontend and mobile: React, Next.js, TypeScript, JavaScript, React Native, Android
 - Databases and platforms: PostgreSQL, MongoDB, MySQL, Supabase, Docker, Cloudflare, VPS deployment
@@ -32,7 +32,7 @@ Tran Quoc Dat has hands-on SAP technical experience from university capstone wor
 
 ## Selected Projects
 
-- [Custom Notification Center](https://tranquocdat.com/tqdat410/projects): SAP capstone graduation project. Built a centralized notification center inside SAP S/4HANA with bell badge, dropdown notification list, read/unread controls, archive/delete actions, subscription settings, ABAP APIs, RAP/OData services, Fiori/UI5 UI, and near real-time delivery using AMC/APC. Role: Team Leader for a 4-member team.
+- [Custom Notification Center](https://tranquocdat.com/tqdat410/projects): SAP capstone graduation project. Built a centralized notification center inside SAP S/4HANA with bell badge, dropdown notification list, read/unread controls, archive/delete actions, subscription settings, ABAP APIs, RAP/OData services, Fiori/UI5 UI, and near real-time delivery using WebSocket and AMC/APC. Role: Team Leader for a 4-member team.
 - [Hengout](https://hengout.app): Startup product for GenZ location discovery. Built personalized venue recommendations, group consensus suggestions, event-driven updates with Kafka, Redis caching, Apple In-App Purchase integration, Grafana monitoring, CI/CD, VPS deployment, and App Store delivery. Role: Tech Lead. Result: won a 50 million VND scholarship from FPT University and shipped to the App Store.
 - [Uni. Event Manager](https://tranquocdat.com/tqdat410/projects): University course project for event management workflows. Focused on backend design, frontend integration, and practical team delivery.
 - [Koi Vet. Center](https://tranquocdat.com/tqdat410/projects): University course project for veterinary service workflows. Focused on full-stack application development and database-backed business features.
@@ -49,6 +49,8 @@ Tran Quoc Dat has hands-on SAP technical experience from university capstone wor
 - FPT Software: Certificate on the Job Training
 - FPT Software: FSOFT Short Course for Testing
 - FPT University: Academic Preparatory English TRS601 - English 6
+- FPT University: Honorable Student of Trimester Spring 2026
+- FPT University: Excellent Student of Trimester Fall 2025
 - FPT University: Excellent Student of Trimester Summer 2025
 - FPT University: Honorable Student of Trimester Fall 2024
 - FPT University: Honorable Student of Trimester Summer 2024
@@ -79,7 +81,8 @@ Tran Quoc Dat has hands-on SAP technical experience from university capstone wor
 
 - [Sitemap](https://tranquocdat.com/sitemap.xml): Canonical crawlable routes
 - [Desktop-style launcher](https://tranquocdat.com/tqdat410): Alternate portfolio launcher experience
-- [Resume](https://drive.google.com/file/d/1TC7Kx1XpVvZO2MQyon0FzXYhleKNG3yY/view?usp=sharing): Public resume link from the portfolio
+- [Resume (Visual)](https://drive.google.com/file/d/1TC7Kx1XpVvZO2MQyon0FzXYhleKNG3yY/view?usp=sharing): Visual-styled resume
+- [Resume (ATS)](https://drive.google.com/file/d/1EBV0eoSKXHTOCvXIvMh8fDp2PuuWaZDf/view?usp=sharing): ATS-friendly resume, plain text format optimized for applicant tracking systems
 
 ## Privacy Notes
 
