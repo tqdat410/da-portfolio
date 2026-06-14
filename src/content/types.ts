@@ -14,7 +14,7 @@ export interface HeroContent {
   name: string;
   role: string;
   description: string;
-  resumeUrl: string;
+  resumeUrls: { visual: string; ats: string };
 }
 
 export interface EducationItem {
