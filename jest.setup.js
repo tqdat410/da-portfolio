@@ -1,4 +1,4 @@
-import '@testing-library/jest-dom';
+import "@testing-library/jest-dom";
 
 // Mock IntersectionObserver (not available in jsdom)
 global.IntersectionObserver = class {
@@ -8,7 +8,9 @@ global.IntersectionObserver = class {
   observe() {}
   unobserve() {}
   disconnect() {}
-  takeRecords() { return []; }
+  takeRecords() {
+    return [];
+  }
 };
 
 // Mock ResizeObserver (not available in jsdom)
@@ -19,9 +21,9 @@ global.ResizeObserver = class {
 };
 
 // Mock window.matchMedia (not available in jsdom)
-Object.defineProperty(window, 'matchMedia', {
+Object.defineProperty(window, "matchMedia", {
   writable: true,
-  value: jest.fn().mockImplementation(query => ({
+  value: jest.fn().mockImplementation((query) => ({
     matches: false,
     media: query,
     onchange: null,
@@ -34,8 +36,8 @@ Object.defineProperty(window, 'matchMedia', {
 });
 
 // Mock next/navigation
-jest.mock('next/navigation', () => ({
-  usePathname: () => '/',
+jest.mock("next/navigation", () => ({
+  usePathname: () => "/",
   useRouter: () => ({
     push: jest.fn(),
     replace: jest.fn(),

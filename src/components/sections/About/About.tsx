@@ -23,8 +23,7 @@ const introSegments: IntroSegment[] = [
   { type: "highlight", value: "Ho Chi Minh City" },
   {
     type: "text",
-    value:
-      ". I build practical web, mobile, and enterprise products, with hands-on ",
+    value: ". I build practical web, mobile, and enterprise products, with hands-on ",
   },
   { type: "highlight", value: "SAP" },
   {
@@ -163,8 +162,7 @@ export function About() {
           (timestamp - animationStartTime) / TERMINAL_AUTO_SCROLL_DURATION_MS
         );
         const easedProgress = easeOutCubic(progress);
-        const nextScrollTop =
-          startScrollTop + (targetScrollTop - startScrollTop) * easedProgress;
+        const nextScrollTop = startScrollTop + (targetScrollTop - startScrollTop) * easedProgress;
 
         setTerminalScrollTop(nextScrollTop);
 
@@ -206,8 +204,7 @@ export function About() {
         return;
       }
 
-      const distanceFromBottom =
-        getTerminalScrollTarget(terminalBody) - terminalBody.scrollTop;
+      const distanceFromBottom = getTerminalScrollTarget(terminalBody) - terminalBody.scrollTop;
       shouldAutoFollowTerminalRef.current =
         distanceFromBottom <= TERMINAL_AUTO_SCROLL_LOCK_THRESHOLD_PX;
     };
@@ -229,7 +226,10 @@ export function About() {
   }, [prefersReducedMotion, showTerminal]);
 
   return (
-    <Section id="about" className="bg-[var(--brand-fg)] text-[var(--brand-bg)] !items-start !pt-24 font-sans">
+    <Section
+      id="about"
+      className="bg-[var(--brand-fg)] text-[var(--brand-bg)] !items-start !pt-24 font-sans"
+    >
       <div className="w-full max-w-5xl mx-auto px-6 md:px-10">
         <p
           ref={introRef}
@@ -242,9 +242,9 @@ export function About() {
               return <span key={`text-${index}`}>{segment.value}</span>;
             }
 
-            const delay = introSegments
-              .slice(0, index + 1)
-              .filter((item) => item.type === "highlight").length - 1;
+            const delay =
+              introSegments.slice(0, index + 1).filter((item) => item.type === "highlight").length -
+              1;
             const transitionDelay = delay * 110;
 
             return (
@@ -312,166 +312,165 @@ export function About() {
                 <>
                   <p className="text-[#9aa3ad]">Last login: Sat May 23 11:02:40 on ttys000</p>
 
-              <div>
-                <p>
-                  <span className="text-[#58a6ff]">{prompt}</span>{" "}
-                  {isTestEnv ? (
-                    <span className="text-[#7ee787]">npm install -g da-portfolio@latest</span>
-                  ) : (
-                    <TextType
-                      as="span"
-                      text="npm install -g da-portfolio@latest"
-                      className="text-[#7ee787]"
-                      typingSpeed={80}
-                      pauseDuration={1500}
-                      deletingSpeed={50}
-                      loop={false}
-                      showCursor={!installTypingDone}
-                      cursorCharacter="|"
-                      startOnVisible={showTerminal}
-                      onSentenceComplete={() => {
-                        if (typedRef.current.install) return;
-                        typedRef.current.install = true;
-                        setInstallTypingDone(true);
-                        schedule(() => setShowInstallOutput(true), 250);
-                        schedule(() => setShowVersionCommand(true), 600);
-                      }}
-                    />
-                  )}
-                </p>
-                {showInstallOutput && (
-                  <div className="text-[var(--brand-fg)]">
-                    added 1 package, and audited 1 package in 88ms
-                    <br />
-                    <br />
-                    found 0 vulnerabilities
-                  </div>
-                )}
-              </div>
-
-              {showVersionCommand && (
-                <div>
-                  <p>
-                    <span className="text-[#58a6ff]">{prompt}</span>{" "}
-                    {isTestEnv ? (
-                      <span className="text-[#7ee787]">dp --version</span>
-                    ) : (
-                      <TextType
-                        as="span"
-                        text="dp --version"
-                        className="text-[#7ee787]"
-                        typingSpeed={80}
-                        pauseDuration={1500}
-                        deletingSpeed={50}
-                        loop={false}
-                        showCursor={!versionTypingDone}
-                        cursorCharacter="|"
-                        startOnVisible={showVersionCommand}
-                        onSentenceComplete={() => {
-                          if (typedRef.current.version) return;
-                          typedRef.current.version = true;
-                          setVersionTypingDone(true);
-                          schedule(() => setShowVersionOutput(true), 250);
-                          schedule(() => setShowInfoCommand(true), 600);
-                        }}
-                      />
-                    )}
-                  </p>
-                  {showVersionOutput && (
-                    <p className="mt-2 text-[var(--brand-fg)]">
-                      v0.4.2
+                  <div>
+                    <p>
+                      <span className="text-[#58a6ff]">{prompt}</span>{" "}
+                      {isTestEnv ? (
+                        <span className="text-[#7ee787]">npm install -g da-portfolio@latest</span>
+                      ) : (
+                        <TextType
+                          as="span"
+                          text="npm install -g da-portfolio@latest"
+                          className="text-[#7ee787]"
+                          typingSpeed={80}
+                          pauseDuration={1500}
+                          deletingSpeed={50}
+                          loop={false}
+                          showCursor={!installTypingDone}
+                          cursorCharacter="|"
+                          startOnVisible={showTerminal}
+                          onSentenceComplete={() => {
+                            if (typedRef.current.install) return;
+                            typedRef.current.install = true;
+                            setInstallTypingDone(true);
+                            schedule(() => setShowInstallOutput(true), 250);
+                            schedule(() => setShowVersionCommand(true), 600);
+                          }}
+                        />
+                      )}
                     </p>
-                  )}
-                </div>
-              )}
-
-                  {showInfoCommand && (
-                <div>
-                  <p>
-                    <span className="text-[#58a6ff]">{prompt}</span>{" "}
-                    {isTestEnv ? (
-                      <span className="text-[#7ee787]">dp --info</span>
-                    ) : (
-                      <TextType
-                        as="span"
-                        text="dp --info"
-                        className="text-[#7ee787]"
-                        typingSpeed={80}
-                        pauseDuration={1500}
-                        deletingSpeed={50}
-                        loop={false}
-                        showCursor={!infoTypingDone}
-                        cursorCharacter="|"
-                        startOnVisible={showInfoCommand}
-                        onSentenceComplete={() => {
-                          if (typedRef.current.info) return;
-                          typedRef.current.info = true;
-                          setInfoTypingDone(true);
-                          schedule(() => setShowInfoOutput(true), 250);
-                        }}
-                      />
+                    {showInstallOutput && (
+                      <div className="text-[var(--brand-fg)]">
+                        added 1 package, and audited 1 package in 88ms
+                        <br />
+                        <br />
+                        found 0 vulnerabilities
+                      </div>
                     )}
-                  </p>
-                  {showInfoOutput && (
-                    <div className="mt-3 space-y-2 text-[var(--brand-fg)]">
-                      <p className="text-[#79c0ff]">[ PROFILE ]</p>
-                      <p>• Name: {content.about.name}</p>
-                      <p>• Location: {content.about.basicInfo.location}</p>
-                      {content.about.education.items.map((item, index) => (
-                        <div key={index} className="pt-1">
-                          <p className="text-[#79c0ff]">[ EDUCATION ]</p>
-                          <p>• {item.school}</p>
-                          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{item.degree}</p>
-                          <p>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{item.year} |{" "}
-                            <span className="rounded px-1.5 py-0.5 font-semibold text-[#79c0ff]">
-                              {item.gpa}
-                            </span>
-                          </p>
-                        </div>
-                      ))}
-                      <div className="pt-1">
-                        <p className="text-[#79c0ff]">[ SKILLS & TOOLS ]</p>
-                        {skillCategories.map((category) => (
-                          <p key={category.title} className={category.title === "Others" ? "text-[#9aa3ad]" : ""}>
-                            <span className="whitespace-nowrap">• {category.title}:</span>{" "}
-                            <span className="inline">
-                              {category.items.join(", ")}
-                              {category.title === "Others" ? ", ..." : ""}
-                            </span>
-                          </p>
-                        ))}
-                      </div>
-                      <div className="pt-1">
-                        <p className="text-[#79c0ff]">[ CERTIFICATES ]</p>
-                        <p>• Certificate on the Job Training</p>
-                        <p>• FSOFT Short Course for Testing</p>
-                        <p>• {totalCourseraCertificates}+ Coursera Certificates</p>
-                        <p>
-                          See more:{" "}
-                          <Link
-                            href={`${siteOrigin}${certificatesExplorerPath}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-[var(--brand-fg)] underline underline-offset-2"
-                          >
-                            {siteOrigin}
-                            {certificatesExplorerPath}
-                          </Link>
-                        </p>
-                      </div>
-                      {content.about.experience.items.map((item, index) => (
-                        <div key={`${item.company}-${index}`} className="pt-1">
-                          <p className="text-[#79c0ff]">[ EXPERIENCE ]</p>
-                          <p>• {item.company}</p>
-                          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{item.role}</p>
-                          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{item.period}</p>
-                        </div>
-                      ))}
-                      <p className="pt-2 text-[#7ee787]">[ok] completed</p>
+                  </div>
+
+                  {showVersionCommand && (
+                    <div>
+                      <p>
+                        <span className="text-[#58a6ff]">{prompt}</span>{" "}
+                        {isTestEnv ? (
+                          <span className="text-[#7ee787]">dp --version</span>
+                        ) : (
+                          <TextType
+                            as="span"
+                            text="dp --version"
+                            className="text-[#7ee787]"
+                            typingSpeed={80}
+                            pauseDuration={1500}
+                            deletingSpeed={50}
+                            loop={false}
+                            showCursor={!versionTypingDone}
+                            cursorCharacter="|"
+                            startOnVisible={showVersionCommand}
+                            onSentenceComplete={() => {
+                              if (typedRef.current.version) return;
+                              typedRef.current.version = true;
+                              setVersionTypingDone(true);
+                              schedule(() => setShowVersionOutput(true), 250);
+                              schedule(() => setShowInfoCommand(true), 600);
+                            }}
+                          />
+                        )}
+                      </p>
+                      {showVersionOutput && <p className="mt-2 text-[var(--brand-fg)]">v0.4.2</p>}
                     </div>
                   )}
-                </div>
+
+                  {showInfoCommand && (
+                    <div>
+                      <p>
+                        <span className="text-[#58a6ff]">{prompt}</span>{" "}
+                        {isTestEnv ? (
+                          <span className="text-[#7ee787]">dp --info</span>
+                        ) : (
+                          <TextType
+                            as="span"
+                            text="dp --info"
+                            className="text-[#7ee787]"
+                            typingSpeed={80}
+                            pauseDuration={1500}
+                            deletingSpeed={50}
+                            loop={false}
+                            showCursor={!infoTypingDone}
+                            cursorCharacter="|"
+                            startOnVisible={showInfoCommand}
+                            onSentenceComplete={() => {
+                              if (typedRef.current.info) return;
+                              typedRef.current.info = true;
+                              setInfoTypingDone(true);
+                              schedule(() => setShowInfoOutput(true), 250);
+                            }}
+                          />
+                        )}
+                      </p>
+                      {showInfoOutput && (
+                        <div className="mt-3 space-y-2 text-[var(--brand-fg)]">
+                          <p className="text-[#79c0ff]">[ PROFILE ]</p>
+                          <p>• Name: {content.about.name}</p>
+                          <p>• Location: {content.about.basicInfo.location}</p>
+                          {content.about.education.items.map((item, index) => (
+                            <div key={index} className="pt-1">
+                              <p className="text-[#79c0ff]">[ EDUCATION ]</p>
+                              <p>• {item.school}</p>
+                              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{item.degree}</p>
+                              <p>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{item.year} |{" "}
+                                <span className="rounded px-1.5 py-0.5 font-semibold text-[#79c0ff]">
+                                  {item.gpa}
+                                </span>
+                              </p>
+                            </div>
+                          ))}
+                          <div className="pt-1">
+                            <p className="text-[#79c0ff]">[ SKILLS & TOOLS ]</p>
+                            {skillCategories.map((category) => (
+                              <p
+                                key={category.title}
+                                className={category.title === "Others" ? "text-[#9aa3ad]" : ""}
+                              >
+                                <span className="whitespace-nowrap">• {category.title}:</span>{" "}
+                                <span className="inline">
+                                  {category.items.join(", ")}
+                                  {category.title === "Others" ? ", ..." : ""}
+                                </span>
+                              </p>
+                            ))}
+                          </div>
+                          <div className="pt-1">
+                            <p className="text-[#79c0ff]">[ CERTIFICATES ]</p>
+                            <p>• Certificate on the Job Training</p>
+                            <p>• FSOFT Short Course for Testing</p>
+                            <p>• {totalCourseraCertificates}+ Coursera Certificates</p>
+                            <p>
+                              See more:{" "}
+                              <Link
+                                href={`${siteOrigin}${certificatesExplorerPath}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[var(--brand-fg)] underline underline-offset-2"
+                              >
+                                {siteOrigin}
+                                {certificatesExplorerPath}
+                              </Link>
+                            </p>
+                          </div>
+                          {content.about.experience.items.map((item, index) => (
+                            <div key={`${item.company}-${index}`} className="pt-1">
+                              <p className="text-[#79c0ff]">[ EXPERIENCE ]</p>
+                              <p>• {item.company}</p>
+                              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{item.role}</p>
+                              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{item.period}</p>
+                            </div>
+                          ))}
+                          <p className="pt-2 text-[#7ee787]">[ok] completed</p>
+                        </div>
+                      )}
+                    </div>
                   )}
                 </>
               )}
@@ -484,4 +483,3 @@ export function About() {
     </Section>
   );
 }
-

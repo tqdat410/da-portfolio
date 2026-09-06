@@ -3,4 +3,7 @@ node_modules
 out
 build
 dist
+.claude
+plans
+cv_*.html
 *.md

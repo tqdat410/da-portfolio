@@ -30,16 +30,34 @@ interface FolderViewPanelProps {
 
 function FolderIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4 text-[var(--brand-bg)]" fill="none" aria-hidden="true">
-      <path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" stroke="currentColor" strokeWidth="1.5" />
+    <svg
+      viewBox="0 0 24 24"
+      className="h-4 w-4 text-[var(--brand-bg)]"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
     </svg>
   );
 }
 
 function MarkdownFileIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4 text-[var(--brand-bg)]" fill="none" aria-hidden="true">
-      <path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" strokeWidth="1.5" />
+    <svg
+      viewBox="0 0 24 24"
+      className="h-4 w-4 text-[var(--brand-bg)]"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
       <path d="M14 3v5h5" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
@@ -47,16 +65,36 @@ function MarkdownFileIcon() {
 
 function ImageFileIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4 text-[var(--brand-bg)]" fill="none" aria-hidden="true">
-      <path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" strokeWidth="1.5" />
+    <svg
+      viewBox="0 0 24 24"
+      className="h-4 w-4 text-[var(--brand-bg)]"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
       <path d="M14 3v5h5" stroke="currentColor" strokeWidth="1.5" />
       <circle cx="10" cy="13" r="1.4" fill="currentColor" />
-      <path d="M8.5 18l3.2-3.2 2.3 2.3 1.5-1.5 1.5 1.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M8.5 18l3.2-3.2 2.3 2.3 1.5-1.5 1.5 1.5"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
 
-export function FolderViewPanel({ model, onOpenFolder, onOpenFile, onOpenImage }: FolderViewPanelProps) {
+export function FolderViewPanel({
+  model,
+  onOpenFolder,
+  onOpenFile,
+  onOpenImage,
+}: FolderViewPanelProps) {
   const [selectedChildId, setSelectedChildId] = useState<string | null>(null);
 
   return (
@@ -86,7 +124,13 @@ export function FolderViewPanel({ model, onOpenFolder, onOpenFile, onOpenImage }
                 : "text-[var(--brand-bg)] hover:bg-[var(--brand-bg)]/8"
             }`}
           >
-            {child.kind === "folder" ? <FolderIcon /> : child.kind === "image" ? <ImageFileIcon /> : <MarkdownFileIcon />}
+            {child.kind === "folder" ? (
+              <FolderIcon />
+            ) : child.kind === "image" ? (
+              <ImageFileIcon />
+            ) : (
+              <MarkdownFileIcon />
+            )}
             <span className="min-w-0 flex-1 truncate">{child.label}</span>
           </button>
         ))}
@@ -94,4 +138,3 @@ export function FolderViewPanel({ model, onOpenFolder, onOpenFile, onOpenImage }
     </article>
   );
 }
-

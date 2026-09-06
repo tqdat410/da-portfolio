@@ -3,6 +3,7 @@
 import { content } from "@/content";
 import Particles from "@/components/Particles";
 import { useIsMobile } from "@/hooks/useMediaQuery";
+import Image from "next/image";
 
 export function Contact() {
   const contactInfo = content.contact;
@@ -11,23 +12,24 @@ export function Contact() {
 
   // Build contact links array - mobile shows essential links only
   const allContactLinks = [
-    { label: 'Gmail', value: contactInfo.email, href: `mailto:${contactInfo.email}`, mobile: true },
-    { label: 'Phone', value: contactInfo.phone, href: `tel:${contactInfo.phone}`, mobile: true },
-    { label: 'GitHub', value: 'tqdat410', href: social.github, mobile: true },
-    { label: 'LinkedIn', value: 'tqdat410', href: social.linkedin, mobile: true },
-    { label: 'Facebook', value: 'tqdat410', href: social.facebook, mobile: false },
-    { label: 'X', value: '@trandat40', href: social.x, mobile: false },
-    { label: 'Telegram', value: '@tqdat410', href: social.telegram, mobile: false },
-    { label: 'Discord', value: 'tqdat410', href: social.discord, mobile: false },
-    { label: 'Linktree', value: 'tqdat410', href: contactInfo.linktree, mobile: true },
-  ].filter(link => link.href && link.href.length > 0);
+    { label: "Gmail", value: contactInfo.email, href: `mailto:${contactInfo.email}`, mobile: true },
+    { label: "Phone", value: contactInfo.phone, href: `tel:${contactInfo.phone}`, mobile: true },
+    { label: "GitHub", value: "tqdat410", href: social.github, mobile: true },
+    { label: "LinkedIn", value: "tqdat410", href: social.linkedin, mobile: true },
+    { label: "Facebook", value: "tqdat410", href: social.facebook, mobile: false },
+    { label: "X", value: "@trandat40", href: social.x, mobile: false },
+    { label: "Telegram", value: "@tqdat410", href: social.telegram, mobile: false },
+    { label: "Discord", value: "tqdat410", href: social.discord, mobile: false },
+    { label: "Linktree", value: "tqdat410", href: contactInfo.linktree, mobile: true },
+  ].filter((link) => link.href && link.href.length > 0);
 
-  const contactLinks = isMobile
-    ? allContactLinks.filter(link => link.mobile)
-    : allContactLinks;
+  const contactLinks = isMobile ? allContactLinks.filter((link) => link.mobile) : allContactLinks;
 
   return (
-    <section id="contact" className="relative min-h-screen w-full overflow-hidden bg-[#0c0c0c] text-[#fafafa]">
+    <section
+      id="contact"
+      className="relative min-h-screen w-full overflow-hidden bg-[#0c0c0c] text-[#fafafa]"
+    >
       <div className="absolute inset-0 z-0">
         <Particles
           className="h-full w-full"
@@ -46,9 +48,12 @@ export function Contact() {
       <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[92rem] items-center px-4 py-20 md:px-10 lg:px-16">
         <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(240px,360px)_1fr] lg:gap-16">
           <div className="w-full max-w-sm justify-self-center lg:justify-self-start">
-            <img
+            <Image
               src="https://res.cloudinary.com/do6szo7zy/image/upload/f_auto,q_auto/v1771402777/profile_jsxaod.png"
               alt="Profile"
+              width={600}
+              height={600}
+              sizes="(max-width: 1023px) 100vw, 360px"
               className="aspect-square w-full object-cover"
             />
           </div>
@@ -63,8 +68,16 @@ export function Contact() {
                 <a
                   key={link.label}
                   href={link.href}
-                  target={link.href.startsWith("mailto:") || link.href.startsWith("tel:") ? undefined : "_blank"}
-                  rel={link.href.startsWith("mailto:") || link.href.startsWith("tel:") ? undefined : "noopener noreferrer"}
+                  target={
+                    link.href.startsWith("mailto:") || link.href.startsWith("tel:")
+                      ? undefined
+                      : "_blank"
+                  }
+                  rel={
+                    link.href.startsWith("mailto:") || link.href.startsWith("tel:")
+                      ? undefined
+                      : "noopener noreferrer"
+                  }
                   className="group relative block overflow-hidden px-3 py-2 focus-visible:outline-2 focus-visible:outline-[#fafafa] focus-visible:outline-offset-2"
                 >
                   <span className="absolute inset-0 origin-bottom-right scale-x-0 scale-y-0 bg-[#fafafa] transition-transform duration-300 ease-out group-hover:scale-x-100 group-hover:scale-y-100" />
@@ -80,4 +93,3 @@ export function Contact() {
     </section>
   );
 }
-

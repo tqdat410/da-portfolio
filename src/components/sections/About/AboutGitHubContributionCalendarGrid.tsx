@@ -70,9 +70,9 @@ export function AboutGitHubContributionCalendarGrid({
                     key={day.date}
                     className="h-[var(--contribution-cell-size)] w-[var(--contribution-cell-size)] rounded-[2px]"
                     style={{
-                      backgroundColor: LEVEL_COLORS[
-                        day.contributionLevel as keyof typeof LEVEL_COLORS
-                      ] ?? LEVEL_COLORS.NONE,
+                      backgroundColor:
+                        LEVEL_COLORS[day.contributionLevel as keyof typeof LEVEL_COLORS] ??
+                        LEVEL_COLORS.NONE,
                       gridColumnStart: weekIndex + 2,
                       gridRowStart: dayIndex + 2,
                     }}

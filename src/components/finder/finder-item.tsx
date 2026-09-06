@@ -11,18 +11,27 @@ interface FinderItemProps {
 
 function FolderIcon() {
   return (
-    <svg
-      className="h-12 w-12 md:h-14 md:w-14"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden="true"
-    >
+    <svg className="h-12 w-12 md:h-14 md:w-14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <defs>
-        <linearGradient id="folderBody" x1="12" y1="6.8" x2="12" y2="20.4" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="folderBody"
+          x1="12"
+          y1="6.8"
+          x2="12"
+          y2="20.4"
+          gradientUnits="userSpaceOnUse"
+        >
           <stop stopColor="#6CB3FF" />
           <stop offset="1" stopColor="#3D8CFF" />
         </linearGradient>
-        <linearGradient id="folderTop" x1="12" y1="4.8" x2="12" y2="10.5" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="folderTop"
+          x1="12"
+          y1="4.8"
+          x2="12"
+          y2="10.5"
+          gradientUnits="userSpaceOnUse"
+        >
           <stop stopColor="#98CBFF" />
           <stop offset="1" stopColor="#75B9FF" />
         </linearGradient>
@@ -47,14 +56,16 @@ function FolderIcon() {
 
 function FileIcon() {
   return (
-    <svg
-      className="h-12 w-12 md:h-14 md:w-14"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden="true"
-    >
+    <svg className="h-12 w-12 md:h-14 md:w-14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <defs>
-        <linearGradient id="fileBody" x1="12.5" y1="3.8" x2="12.5" y2="21.5" gradientUnits="userSpaceOnUse">
+        <linearGradient
+          id="fileBody"
+          x1="12.5"
+          y1="3.8"
+          x2="12.5"
+          y2="21.5"
+          gradientUnits="userSpaceOnUse"
+        >
           <stop stopColor="#FFFFFF" />
           <stop offset="1" stopColor="#ECECEC" />
         </linearGradient>
@@ -66,17 +77,17 @@ function FileIcon() {
         strokeWidth="0.9"
       />
       <path d="M14.5 3.8V8h4.2" stroke="#D2D2D2" strokeWidth="0.9" />
-      <path d="M8.8 11.25h6.4M8.8 14.25h6.4" stroke="#B8B8B8" strokeWidth="0.95" strokeLinecap="round" />
+      <path
+        d="M8.8 11.25h6.4M8.8 14.25h6.4"
+        stroke="#B8B8B8"
+        strokeWidth="0.95"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
 
-export function FinderItem({
-  item,
-  isSelected,
-  onClick,
-  onDoubleClick,
-}: FinderItemProps) {
+export function FinderItem({ item, isSelected, onClick, onDoubleClick }: FinderItemProps) {
   return (
     <button
       type="button"
@@ -104,4 +115,3 @@ export function FinderItem({
     </button>
   );
 }
-

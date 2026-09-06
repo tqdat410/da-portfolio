@@ -17,7 +17,9 @@ describe("Contact Section", () => {
 
   it("renders contact information (email and phone)", () => {
     render(<Contact />);
-    const emailLink = screen.getByText(new RegExp(`Gmail\\s*:\\s*${content.contact.email}`)).closest("a");
+    const emailLink = screen
+      .getByText(new RegExp(`Gmail\\s*:\\s*${content.contact.email}`))
+      .closest("a");
     expect(emailLink).toBeInTheDocument();
     expect(emailLink).toHaveAttribute("href", `mailto:${content.contact.email}`);
 

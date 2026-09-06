@@ -8,6 +8,7 @@ Da'portfolio is a Next.js App Router portfolio site built with React, TypeScript
 
 ```bash
 npm run dev
+npm run check
 npm run build
 npm run lint
 npm run test

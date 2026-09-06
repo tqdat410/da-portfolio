@@ -16,7 +16,9 @@ export function Navbar() {
   const [hasInitialAnimationCompleted, setHasInitialAnimationCompleted] = useState(false);
   const [initialActiveSection] = useState<string | null>(() => activeSection || null);
   const isLightBackgroundSection = activeSection === "about";
-  const baseTextColor = isLightBackgroundSection ? "text-[var(--brand-bg)]" : "text-[var(--brand-fg)]";
+  const baseTextColor = isLightBackgroundSection
+    ? "text-[var(--brand-bg)]"
+    : "text-[var(--brand-fg)]";
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -66,7 +68,7 @@ export function Navbar() {
                   : "text-md opacity-60 hover:opacity-90 hover:scale-105"
               }
             `}
-            style={{ animationDelay: `${0.6 + index * 0.2}s`, animationFillMode: 'backwards' }}
+            style={{ animationDelay: `${0.6 + index * 0.2}s`, animationFillMode: "backwards" }}
             aria-current={isActive ? "page" : undefined}
           >
             {item.label}
@@ -76,4 +78,3 @@ export function Navbar() {
     </nav>
   );
 }
-

@@ -103,8 +103,7 @@ describe("github-contributions", () => {
 
   it("builds year filters from 2025 onward", () => {
     expect(getGitHubContributionYears(2025, new Date("2026-03-14T00:00:00.000Z"))).toEqual([
-      2026,
-      2025,
+      2026, 2025,
     ]);
   });
 

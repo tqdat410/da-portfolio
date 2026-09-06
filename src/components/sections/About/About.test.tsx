@@ -95,7 +95,11 @@ function createMatchMediaResult(matches: boolean, query: string): MediaQueryList
 
 function setTerminalMetrics(
   element: HTMLElement,
-  { clientHeight, scrollHeight, scrollTop = 0 }: { clientHeight: number; scrollHeight: number; scrollTop?: number }
+  {
+    clientHeight,
+    scrollHeight,
+    scrollTop = 0,
+  }: { clientHeight: number; scrollHeight: number; scrollTop?: number }
 ) {
   let currentScrollHeight = scrollHeight;
   let currentScrollTop = scrollTop;
@@ -163,20 +167,22 @@ describe("About Section", () => {
     queuedAnimationFrames = new Map<number, FrameRequestCallback>();
 
     global.ResizeObserver = MockResizeObserver as unknown as typeof ResizeObserver;
-    jest.spyOn(window, "requestAnimationFrame").mockImplementation((callback: FrameRequestCallback) => {
-      animationFrameId += 1;
-      queuedAnimationFrames.set(animationFrameId, callback);
-      return animationFrameId;
-    });
+    jest
+      .spyOn(window, "requestAnimationFrame")
+      .mockImplementation((callback: FrameRequestCallback) => {
+        animationFrameId += 1;
+        queuedAnimationFrames.set(animationFrameId, callback);
+        return animationFrameId;
+      });
     jest.spyOn(window, "cancelAnimationFrame").mockImplementation((id: number) => {
       queuedAnimationFrames.delete(id);
     });
 
     const matchMediaMock = window.matchMedia as jest.Mock;
     matchMediaMock.mockImplementation((query: string) => createMatchMediaResult(false, query));
-    global.fetch = jest.fn().mockImplementation(
-      () => new Promise<Response>(() => undefined)
-    ) as unknown as typeof fetch;
+    global.fetch = jest
+      .fn()
+      .mockImplementation(() => new Promise<Response>(() => undefined)) as unknown as typeof fetch;
   });
 
   afterEach(() => {
@@ -242,19 +248,26 @@ describe("About Section", () => {
   it("renders refactored skill categories in the expected order", () => {
     render(<About />);
     expect(
-      screen.getByText((_, element) => element?.tagName === "P" && /Core:\s*ABAP, Java, SpringBoot/i.test(element.textContent ?? ""))
+      screen.getByText(
+        (_, element) =>
+          element?.tagName === "P" &&
+          /Core:\s*ABAP, Java, SpringBoot/i.test(element.textContent ?? "")
+      )
     ).toBeInTheDocument();
     const aiUsageLine = screen.getByText(
-      (_, element) => element?.tagName === "P" && /AI Usage:\s*Claude Code, Codex/i.test(element.textContent ?? "")
+      (_, element) =>
+        element?.tagName === "P" &&
+        /AI Usage:\s*Claude Code, Codex/i.test(element.textContent ?? "")
     );
     expect(aiUsageLine).toBeInTheDocument();
     expect(aiUsageLine).not.toHaveTextContent("Antigravity");
     expect(
-      screen.getByText((_, element) =>
-        element?.tagName === "P" &&
-        /Others:\s*Fiori, UI5, PostgreSQL, JavaScript, TypeScript, React, Next\.js, MongoDB, Redis, Supabase, Docker, Kafka, Cloudflare, n8n,\s*\.\.\./i.test(
-          element.textContent ?? ""
-        )
+      screen.getByText(
+        (_, element) =>
+          element?.tagName === "P" &&
+          /Others:\s*Fiori, UI5, PostgreSQL, JavaScript, TypeScript, React, Next\.js, MongoDB, Redis, Supabase, Docker, Kafka, Cloudflare, n8n,\s*\.\.\./i.test(
+            element.textContent ?? ""
+          )
       )
     ).toBeInTheDocument();
   });

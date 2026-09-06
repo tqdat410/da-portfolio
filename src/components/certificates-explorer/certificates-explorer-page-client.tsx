@@ -47,7 +47,11 @@ interface CertificatesExplorerPageClientProps {
 function FolderNameIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-4 w-4 text-current" fill="none" aria-hidden="true">
-      <path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
     </svg>
   );
 }
@@ -55,7 +59,11 @@ function FolderNameIcon() {
 function MarkdownNameIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-4 w-4 text-current" fill="none" aria-hidden="true">
-      <path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
       <path d="M14 3v5h5" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
@@ -64,7 +72,11 @@ function MarkdownNameIcon() {
 function PdfNameIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-4 w-4 text-current" fill="none" aria-hidden="true">
-      <path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
       <path d="M14 3v5h5" stroke="currentColor" strokeWidth="1.5" />
       <path d="M9 17h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
@@ -149,12 +161,20 @@ function buildRows(tree: CertificatesTreeCategory[], expanded: Set<string>): Tre
   return rows;
 }
 
-function buildFolderModel(folderId: string, tree: CertificatesTreeCategory[]): FolderViewModel | null {
+function buildFolderModel(
+  folderId: string,
+  tree: CertificatesTreeCategory[]
+): FolderViewModel | null {
   if (folderId === "root:certificates") {
     return {
       id: folderId,
       children: [
-        { id: "file:certificates.md", kind: "file", label: "certificates.md", fileName: "certificates.md" },
+        {
+          id: "file:certificates.md",
+          kind: "file",
+          label: "certificates.md",
+          fileName: "certificates.md",
+        },
         ...tree.map((category) => ({
           id: `category:${category.name}`,
           kind: "folder" as const,
@@ -385,7 +405,9 @@ export function CertificatesExplorerPageClient({ doc, tree }: CertificatesExplor
                   }}
                   className={clsx(
                     "flex w-full cursor-default items-center gap-1 rounded px-2 py-1 text-left text-sm outline-none",
-                    isSelected ? "bg-[#0A84FF] text-white" : "text-[var(--brand-bg)] hover:bg-[var(--brand-bg)]/8"
+                    isSelected
+                      ? "bg-[#0A84FF] text-white"
+                      : "text-[var(--brand-bg)] hover:bg-[var(--brand-bg)]/8"
                   )}
                   style={{ paddingLeft: `${8 + row.depth * 16}px` }}
                 >
@@ -413,7 +435,9 @@ export function CertificatesExplorerPageClient({ doc, tree }: CertificatesExplor
                     <MarkdownNameIcon />
                   )}
                   <span className="truncate" title={row.label}>
-                    {row.kind === "file" || row.kind === "pdf" ? compactFileLabel(row.label) : row.label}
+                    {row.kind === "file" || row.kind === "pdf"
+                      ? compactFileLabel(row.label)
+                      : row.label}
                   </span>
                 </div>
               );
@@ -426,7 +450,9 @@ export function CertificatesExplorerPageClient({ doc, tree }: CertificatesExplor
 
         <section className="flex min-h-0 flex-1 flex-col">
           <header className="flex items-center justify-between border-b border-[var(--brand-bg)]/10 px-4 py-3">
-            <p className="text-sm font-semibold">{activeFile ?? selectedRowLabel ?? "No selection"}</p>
+            <p className="text-sm font-semibold">
+              {activeFile ?? selectedRowLabel ?? "No selection"}
+            </p>
             {activeFile ? (
               <div className="inline-flex rounded-md border border-[var(--brand-bg)]/20 p-0.5 text-xs">
                 <button
@@ -434,7 +460,9 @@ export function CertificatesExplorerPageClient({ doc, tree }: CertificatesExplor
                   onClick={() => updateQuery({ view: "preview" })}
                   className={clsx(
                     "rounded px-2 py-1",
-                    mode === "preview" ? "bg-[var(--brand-bg)] text-[var(--brand-fg)]" : "text-[var(--brand-bg)]"
+                    mode === "preview"
+                      ? "bg-[var(--brand-bg)] text-[var(--brand-fg)]"
+                      : "text-[var(--brand-bg)]"
                   )}
                 >
                   Preview
@@ -444,7 +472,9 @@ export function CertificatesExplorerPageClient({ doc, tree }: CertificatesExplor
                   onClick={() => updateQuery({ view: "raw" })}
                   className={clsx(
                     "rounded px-2 py-1",
-                    mode === "raw" ? "bg-[var(--brand-bg)] text-[var(--brand-fg)]" : "text-[var(--brand-bg)]"
+                    mode === "raw"
+                      ? "bg-[var(--brand-bg)] text-[var(--brand-fg)]"
+                      : "text-[var(--brand-bg)]"
                   )}
                 >
                   Raw
@@ -466,10 +496,18 @@ export function CertificatesExplorerPageClient({ doc, tree }: CertificatesExplor
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
                       components={{
-                        h2: ({ children }) => <h2 className="mb-2 mt-6 text-lg font-semibold">{children}</h2>,
-                        h3: ({ children }) => <h3 className="mb-2 mt-4 text-base font-semibold">{children}</h3>,
-                        ul: ({ children }) => <ul className="list-disc space-y-1 pl-5">{children}</ul>,
-                        p: ({ children }) => <p className="text-[var(--brand-bg)]/90">{children}</p>,
+                        h2: ({ children }) => (
+                          <h2 className="mb-2 mt-6 text-lg font-semibold">{children}</h2>
+                        ),
+                        h3: ({ children }) => (
+                          <h3 className="mb-2 mt-4 text-base font-semibold">{children}</h3>
+                        ),
+                        ul: ({ children }) => (
+                          <ul className="list-disc space-y-1 pl-5">{children}</ul>
+                        ),
+                        p: ({ children }) => (
+                          <p className="text-[var(--brand-bg)]/90">{children}</p>
+                        ),
                       }}
                     >
                       {doc.rawMarkdown}
@@ -481,7 +519,9 @@ export function CertificatesExplorerPageClient({ doc, tree }: CertificatesExplor
               <article className="w-full p-2">
                 <div className="space-y-1">
                   {selectedFolder.children.length === 0 ? (
-                    <p className="px-2 py-1 text-sm text-[var(--brand-bg)]/60">No files in this folder.</p>
+                    <p className="px-2 py-1 text-sm text-[var(--brand-bg)]/60">
+                      No files in this folder.
+                    </p>
                   ) : (
                     selectedFolder.children.map((item) => (
                       <button
@@ -532,4 +572,3 @@ export function CertificatesExplorerPageClient({ doc, tree }: CertificatesExplor
     </div>
   );
 }
-

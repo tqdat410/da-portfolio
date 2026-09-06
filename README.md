@@ -1,16 +1,43 @@
 # Da'portfolio
 
-A personal creative portfolio website built with React, Next.js App Router, TypeScript, and Tailwind CSS.
+Personal portfolio for Tran Quoc Dat, built with Next.js, React, TypeScript, and Tailwind CSS.
 
-Live Demo: [tranquocdat.com](https://tranquocdat.com/)
+[Live site](https://tranquocdat.com) · [AI-readable profile](public/llms.txt)
 
-![Thumbnail](public/hero-section.png)
+![Da'portfolio homepage](public/hero-section.png)
 
-## Core Tech Stack
+## Experiences
 
-- **Framework**: Next.js 16 (App Router & Turbopack)
-- **Library**: React 19, Three.js / OGL (Fluid & WebGL effects)
-- **Styling**: Tailwind CSS v4
-- **Testing**: Jest + Testing Library
+- `/` — portfolio homepage with profile, experience, and contact details.
+- `/tqdat410` — Finder-style launcher.
+- `/tqdat410/projects` — Markdown-backed project explorer.
+- `/tqdat410/certificates` — certificate explorer.
 
+## Local development
 
+Requirements: Node.js 22 or newer and npm. The repository `.nvmrc` selects Node.js 24.
+
+```bash
+npm ci
+npm run dev
+```
+
+Copy `.env.example` to `.env.local` only when testing the GitHub contribution calendar. Never commit environment files.
+
+## Quality checks
+
+Run the same gate used by CI:
+
+```bash
+npm run check
+```
+
+Individual scripts are defined in [`package.json`](package.json). CI runs on pull requests and pushes to `main` through [`.github/workflows/quality.yml`](.github/workflows/quality.yml).
+
+## Deployment
+
+The production app runs on Cloudflare Workers through the OpenNext adapter. After `wrangler login`, use `npm run preview` for a Workers-runtime preview or `npm run deploy` to run a sanitized build and deploy. Configure `GITHUB_GRAPHQL_TOKEN` in an ignored `.dev.vars` file for local Workers previews and as a Worker secret in production. The release gate also builds the Worker bundle, so adapter regressions fail before deployment.
+
+## Maintaining content
+
+See [Content management](docs/content-management.md). Architecture decisions and visual constraints live in [System architecture](docs/system-architecture.md) and [Design guidelines](docs/design-guidelines.md).
