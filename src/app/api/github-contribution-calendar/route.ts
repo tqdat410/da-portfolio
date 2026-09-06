@@ -8,8 +8,6 @@ import {
 
 type CalendarApiStatus = "ok" | "missing-token" | "invalid-profile" | "api-error";
 
-export const runtime = "edge";
-
 export async function GET(request: Request) {
   const availableYears = getGitHubContributionYears();
   const requestedYear = Number(new URL(request.url).searchParams.get("year"));

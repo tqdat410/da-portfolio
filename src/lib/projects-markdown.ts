@@ -2,9 +2,9 @@ import "server-only";
 
 import fs from "node:fs/promises";
 import path from "node:path";
-import matter from "gray-matter";
 import { PROJECT_CATEGORY_ORDER } from "@/content/projects/config";
 import type { ProjectCategory } from "@/content";
+import { parseMarkdownFrontmatter } from "@/lib/markdown-frontmatter";
 
 const PROJECTS_CONTENT_DIR = path.join(process.cwd(), "src", "content", "projects");
 
@@ -86,7 +86,7 @@ export async function getAllProjectDocs(): Promise<ProjectMarkdownDoc[]> {
     markdownFiles.map(async (fileName) => {
       const absolutePath = path.join(PROJECTS_CONTENT_DIR, fileName);
       const raw = await fs.readFile(absolutePath, "utf8");
-      const parsed = matter(raw);
+      const parsed = parseMarkdownFrontmatter(raw);
       const frontmatter = parseFrontmatter(parsed.data, fileName);
       if (!frontmatter) return null;
 

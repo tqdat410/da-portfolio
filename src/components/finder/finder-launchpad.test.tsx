@@ -5,10 +5,10 @@ import { FinderLaunchpad } from "./finder-launchpad";
 const mockPush = jest.fn();
 
 jest.mock("next/navigation", () => ({
-    __esModule: true,
-    useRouter: () => ({
-      push: mockPush,
-    }),
+  __esModule: true,
+  useRouter: () => ({
+    push: mockPush,
+  }),
 }));
 
 describe("FinderLaunchpad", () => {

@@ -5,7 +5,10 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState, type KeyboardEvent } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { FolderViewPanel, type FolderViewModel } from "@/components/projects-explorer/folder-view-panel";
+import {
+  FolderViewPanel,
+  type FolderViewModel,
+} from "@/components/projects-explorer/folder-view-panel";
 import { ImagePreviewModal } from "@/components/projects-explorer/image-preview-modal";
 import type { ProjectMarkdownDoc, ProjectsTreeCategory } from "@/lib/projects-markdown";
 
@@ -34,7 +37,11 @@ interface ProjectsExplorerPageClientProps {
 function FolderNameIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-4 w-4 text-current" fill="none" aria-hidden="true">
-      <path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
     </svg>
   );
 }
@@ -42,7 +49,11 @@ function FolderNameIcon() {
 function MarkdownNameIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-4 w-4 text-current" fill="none" aria-hidden="true">
-      <path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
       <path d="M14 3v5h5" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
@@ -51,10 +62,20 @@ function MarkdownNameIcon() {
 function ImageNameIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-4 w-4 text-current" fill="none" aria-hidden="true">
-      <path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
       <path d="M14 3v5h5" stroke="currentColor" strokeWidth="1.5" />
       <circle cx="10" cy="13" r="1.4" fill="currentColor" />
-      <path d="M8.5 18l3.2-3.2 2.3 2.3 1.5-1.5 1.5 1.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M8.5 18l3.2-3.2 2.3 2.3 1.5-1.5 1.5 1.5"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
@@ -299,7 +320,10 @@ export function ProjectsExplorerPageClient({ docs, tree }: ProjectsExplorerPageC
 
   const rows = useMemo(() => buildRows(tree, expanded), [expanded, tree]);
 
-  const selectedDoc = useMemo(() => docs.find((doc) => doc.slug === activeFileSlug) ?? null, [activeFileSlug, docs]);
+  const selectedDoc = useMemo(
+    () => docs.find((doc) => doc.slug === activeFileSlug) ?? null,
+    [activeFileSlug, docs]
+  );
 
   const selectedImage = useMemo(() => {
     if (!activeImageKey) return null;
@@ -318,7 +342,12 @@ export function ProjectsExplorerPageClient({ docs, tree }: ProjectsExplorerPageC
   );
 
   const updateQuery = useCallback(
-    (next: { file?: string | null; folder?: string | null; image?: string | null; view?: ViewerMode }) => {
+    (next: {
+      file?: string | null;
+      folder?: string | null;
+      image?: string | null;
+      view?: ViewerMode;
+    }) => {
       const params = new URLSearchParams(searchParams.toString());
 
       if (next.file === null) params.delete("file");
@@ -491,7 +520,9 @@ export function ProjectsExplorerPageClient({ docs, tree }: ProjectsExplorerPageC
                   }}
                   className={clsx(
                     "flex w-full cursor-default items-center gap-1 rounded px-2 py-1 text-left text-sm outline-none",
-                    isSelected ? "bg-[#0A84FF] text-white" : "text-[var(--brand-bg)] hover:bg-[var(--brand-bg)]/8"
+                    isSelected
+                      ? "bg-[#0A84FF] text-white"
+                      : "text-[var(--brand-bg)] hover:bg-[var(--brand-bg)]/8"
                   )}
                   style={{ paddingLeft: `${8 + row.depth * 16}px` }}
                 >
@@ -511,7 +542,13 @@ export function ProjectsExplorerPageClient({ docs, tree }: ProjectsExplorerPageC
                     <span className="inline-flex h-4 w-4" aria-hidden="true" />
                   )}
 
-                  {(row.kind === "folder" || row.kind === "back") ? <FolderNameIcon /> : row.kind === "image" ? <ImageNameIcon /> : <MarkdownNameIcon />}
+                  {row.kind === "folder" || row.kind === "back" ? (
+                    <FolderNameIcon />
+                  ) : row.kind === "image" ? (
+                    <ImageNameIcon />
+                  ) : (
+                    <MarkdownNameIcon />
+                  )}
                   <span className="truncate">{row.label}</span>
                 </div>
               );
@@ -526,7 +563,12 @@ export function ProjectsExplorerPageClient({ docs, tree }: ProjectsExplorerPageC
         <section className="flex min-h-0 flex-1 flex-col">
           <header className="flex items-center justify-between border-b border-[var(--brand-bg)]/10 px-4 py-3">
             <div>
-              <p className="text-sm font-semibold">{selectedDoc?.fileName ?? selectedFolder?.title ?? selectedImage?.name ?? "No selection"}</p>
+              <p className="text-sm font-semibold">
+                {selectedDoc?.fileName ??
+                  selectedFolder?.title ??
+                  selectedImage?.name ??
+                  "No selection"}
+              </p>
             </div>
 
             {selectedDoc ? (
@@ -536,7 +578,9 @@ export function ProjectsExplorerPageClient({ docs, tree }: ProjectsExplorerPageC
                   onClick={() => updateQuery({ view: "preview" })}
                   className={clsx(
                     "rounded px-2 py-1",
-                    mode === "preview" ? "bg-[var(--brand-bg)] text-[var(--brand-fg)]" : "text-[var(--brand-bg)]"
+                    mode === "preview"
+                      ? "bg-[var(--brand-bg)] text-[var(--brand-fg)]"
+                      : "text-[var(--brand-bg)]"
                   )}
                 >
                   Preview
@@ -546,7 +590,9 @@ export function ProjectsExplorerPageClient({ docs, tree }: ProjectsExplorerPageC
                   onClick={() => updateQuery({ view: "raw" })}
                   className={clsx(
                     "rounded px-2 py-1",
-                    mode === "raw" ? "bg-[var(--brand-bg)] text-[var(--brand-fg)]" : "text-[var(--brand-bg)]"
+                    mode === "raw"
+                      ? "bg-[var(--brand-bg)] text-[var(--brand-fg)]"
+                      : "text-[var(--brand-bg)]"
                   )}
                 >
                   Raw
@@ -568,10 +614,18 @@ export function ProjectsExplorerPageClient({ docs, tree }: ProjectsExplorerPageC
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
                       components={{
-                        h2: ({ children }) => <h2 className="mb-2 mt-6 text-lg font-semibold">{children}</h2>,
-                        h3: ({ children }) => <h3 className="mb-2 mt-4 text-base font-semibold">{children}</h3>,
-                        ul: ({ children }) => <ul className="list-disc space-y-1 pl-5">{children}</ul>,
-                        p: ({ children }) => <p className="text-[var(--brand-bg)]/90">{children}</p>,
+                        h2: ({ children }) => (
+                          <h2 className="mb-2 mt-6 text-lg font-semibold">{children}</h2>
+                        ),
+                        h3: ({ children }) => (
+                          <h3 className="mb-2 mt-4 text-base font-semibold">{children}</h3>
+                        ),
+                        ul: ({ children }) => (
+                          <ul className="list-disc space-y-1 pl-5">{children}</ul>
+                        ),
+                        p: ({ children }) => (
+                          <p className="text-[var(--brand-bg)]/90">{children}</p>
+                        ),
                         a: ({ children, href }) => (
                           <a
                             href={href}
@@ -617,4 +671,3 @@ export function ProjectsExplorerPageClient({ docs, tree }: ProjectsExplorerPageC
     </div>
   );
 }
-

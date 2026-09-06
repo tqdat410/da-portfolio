@@ -16,7 +16,9 @@ interface ToolbarLinkProps {
 function ToolbarLink({ href, children, target, rel, inverted = false }: ToolbarLinkProps) {
   const hoverBgClass = inverted ? "bg-[var(--brand-bg)]" : "bg-[var(--brand-fg)]";
   const textClass = inverted ? "text-[var(--brand-bg)]" : "text-[var(--brand-fg)]";
-  const hoverTextClass = inverted ? "group-hover:text-[var(--brand-fg)]" : "group-hover:text-[var(--brand-bg)]";
+  const hoverTextClass = inverted
+    ? "group-hover:text-[var(--brand-fg)]"
+    : "group-hover:text-[var(--brand-bg)]";
 
   return (
     <a
@@ -26,10 +28,14 @@ function ToolbarLink({ href, children, target, rel, inverted = false }: ToolbarL
       className="group relative shrink-0 overflow-hidden px-1.5 py-2 font-luxurious-roman text-xs tracking-wide whitespace-nowrap md:px-4 md:text-lg"
     >
       {/* Background: Appears from top */}
-      <span className={`absolute inset-0 origin-top scale-y-0 transition-transform duration-300 group-hover:scale-y-100 ${hoverBgClass}`} />
+      <span
+        className={`absolute inset-0 origin-top scale-y-0 transition-transform duration-300 group-hover:scale-y-100 ${hoverBgClass}`}
+      />
 
       {/* Text: Contrast color on hover */}
-      <span className={`relative z-10 block transition-colors duration-300 ${textClass} ${hoverTextClass}`}>
+      <span
+        className={`relative z-10 block transition-colors duration-300 ${textClass} ${hoverTextClass}`}
+      >
         {children}
       </span>
     </a>
@@ -56,17 +62,16 @@ function CvDropdown({ inverted = false }: CvDropdownProps) {
 
   // Resolve trigger text class for mobile
   const triggerTextClass = isMobile
-    ? isOpen ? contrastText : triggerTextDefault
+    ? isOpen
+      ? contrastText
+      : triggerTextDefault
     : `${triggerTextDefault} ${desktopHoverText}`;
 
   return (
     <>
       {/* Backdrop — covers entire screen to catch outside taps (mobile) */}
       {isMobile && isOpen && (
-        <div
-          className="fixed inset-0 z-[60]"
-          onClick={() => setIsOpen(false)}
-        />
+        <div className="fixed inset-0 z-[60]" onClick={() => setIsOpen(false)} />
       )}
 
       <div className="group/cv relative shrink-0 cursor-pointer font-luxurious-roman text-xs tracking-wide whitespace-nowrap md:text-lg">
@@ -74,12 +79,16 @@ function CvDropdown({ inverted = false }: CvDropdownProps) {
         <div className="invisible px-1.5 py-2 md:px-4">download cv</div>
 
         {/* Floating overlay — sits on top of spacer, expands down independently */}
-        <div className={`absolute top-0 left-0 md:left-auto md:right-0 ${isMobile && isOpen ? "z-[70]" : "z-20"}`}>
+        <div
+          className={`absolute top-0 left-0 md:left-auto md:right-0 ${isMobile && isOpen ? "z-[70]" : "z-20"}`}
+        >
           {/* Unified background */}
           <span
             className={`pointer-events-none absolute inset-0 origin-top transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
               isMobile
-                ? isOpen ? "scale-y-100" : "scale-y-0"
+                ? isOpen
+                  ? "scale-y-100"
+                  : "scale-y-0"
                 : "scale-y-0 group-hover/cv:scale-y-100"
             } ${bgClass}`}
           />
@@ -101,7 +110,9 @@ function CvDropdown({ inverted = false }: CvDropdownProps) {
           <div
             className={`relative z-10 grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
               isMobile
-                ? isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                ? isOpen
+                  ? "grid-rows-[1fr]"
+                  : "grid-rows-[0fr]"
                 : "grid-rows-[0fr] group-hover/cv:grid-rows-[1fr]"
             }`}
           >
@@ -134,7 +145,7 @@ function CvDropdown({ inverted = false }: CvDropdownProps) {
 
 export function TopToolbar() {
   const isMobile = useIsMobile();
-  const activeSection = useActiveSection(["home", "about", "projects", "contact", "footer"]);
+  const activeSection = useActiveSection(["home", "about", "contact", "footer"]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Sync scroll lock when mobile menu is open
@@ -149,7 +160,7 @@ export function TopToolbar() {
     };
   }, [isMenuOpen, isMobile]);
 
-  const showSolidBackground = activeSection === "about" || activeSection === "projects";
+  const showSolidBackground = activeSection === "about";
   const isLightTheme = showSolidBackground;
 
   const headerClass = isMobile
@@ -161,9 +172,7 @@ export function TopToolbar() {
             : "bg-[var(--brand-bg)]/90 backdrop-blur-md border-b border-[var(--brand-fg)]/10"
       } pointer-events-auto transition-all duration-300`
     : `justify-between ${
-        showSolidBackground
-          ? "bg-[var(--brand-fg)]"
-          : "bg-transparent"
+        showSolidBackground ? "bg-[var(--brand-fg)]" : "bg-transparent"
       } pointer-events-auto`;
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -187,7 +196,10 @@ export function TopToolbar() {
         className={`fixed top-0 left-0 right-0 z-[70] flex w-full max-w-full items-center overflow-x-clip px-4 py-3 transition-all duration-300 md:px-8 md:py-4 ${headerClass}`}
       >
         {/* Email - hidden on mobile */}
-        <div className="hidden md:block pointer-events-auto animate-fade-in-down" style={{ animationDelay: '0.5s', animationFillMode: 'backwards' }}>
+        <div
+          className="hidden md:block pointer-events-auto animate-fade-in-down"
+          style={{ animationDelay: "0.5s", animationFillMode: "backwards" }}
+        >
           <a
             href="/tqdat410"
             target="_blank"
@@ -206,7 +218,10 @@ export function TopToolbar() {
         </div>
 
         {/* Desktop menu links - hidden on mobile */}
-        <div className="hidden md:flex min-w-0 flex-wrap justify-end gap-4 pointer-events-auto animate-fade-in-down md:ml-auto" style={{ animationDelay: '0.8s', animationFillMode: 'backwards' }}>
+        <div
+          className="hidden md:flex min-w-0 flex-wrap justify-end gap-4 pointer-events-auto animate-fade-in-down md:ml-auto"
+          style={{ animationDelay: "0.8s", animationFillMode: "backwards" }}
+        >
           <CvDropdown inverted={isLightTheme} />
           <ToolbarLink
             href="/tqdat410/projects?folder=root%3Aprojects&view=preview"
@@ -216,7 +231,12 @@ export function TopToolbar() {
           >
             projects
           </ToolbarLink>
-          <ToolbarLink href={content.social.github} target="_blank" rel="noopener noreferrer" inverted={isLightTheme}>
+          <ToolbarLink
+            href={content.social.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            inverted={isLightTheme}
+          >
             github
           </ToolbarLink>
         </div>

@@ -130,7 +130,8 @@ export default function TextType({
           setIsDeleting(false);
           if (currentTextIndex === textArray.length - 1 && !loop) return;
 
-          if (onSentenceComplete) onSentenceComplete(textArray[currentTextIndex] ?? "", currentTextIndex);
+          if (onSentenceComplete)
+            onSentenceComplete(textArray[currentTextIndex] ?? "", currentTextIndex);
 
           setCurrentTextIndex((prev) => (prev + 1) % textArray.length);
           setCurrentCharIndex(0);
@@ -147,7 +148,8 @@ export default function TextType({
           variableSpeed ? getRandomSpeed() : typingSpeed
         );
       } else if (textArray.length >= 1) {
-        if (onSentenceComplete) onSentenceComplete(textArray[currentTextIndex] ?? "", currentTextIndex);
+        if (onSentenceComplete)
+          onSentenceComplete(textArray[currentTextIndex] ?? "", currentTextIndex);
         if (!loop && currentTextIndex === textArray.length - 1) return;
         timeout = setTimeout(() => setIsDeleting(true), pauseDuration);
       }
@@ -181,7 +183,8 @@ export default function TextType({
   ]);
 
   const currentText = textArray[currentTextIndex] ?? "";
-  const shouldHideCursor = hideCursorWhileTyping && (currentCharIndex < currentText.length || isDeleting);
+  const shouldHideCursor =
+    hideCursorWhileTyping && (currentCharIndex < currentText.length || isDeleting);
 
   return createElement(
     Component,

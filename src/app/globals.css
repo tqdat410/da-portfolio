@@ -34,19 +34,19 @@
   --brand-fg: #fafafa;
 
   /* Functional Palette */
-  --bg-primary: var(--brand-bg);      /* Main background */
-  --text-primary: var(--brand-fg);    /* Main heading text */
-  --text-secondary: #9aaac4;  /* Muted secondary text */
-  --text-body: var(--brand-fg);       /* Main body text */
+  --bg-primary: var(--brand-bg); /* Main background */
+  --text-primary: var(--brand-fg); /* Main heading text */
+  --text-secondary: #9aaac4; /* Muted secondary text */
+  --text-body: var(--brand-fg); /* Main body text */
 
   /* Surfaces */
   --bg-surface: rgba(13, 22, 38, 0.78); /* Glass panel */
-  --bg-secondary: #101c31;    /* Elevated surfaces */
-  --bg-highlight: #1d2c47;    /* Highlighted blocks */
+  --bg-secondary: #101c31; /* Elevated surfaces */
+  --bg-highlight: #1d2c47; /* Highlighted blocks */
 
   /* Accents */
-  --accent-glow: #aeb7c5;     /* Metallic silver */
-  --accent-shadow: #6d7788;   /* Steel shadow */
+  --accent-glow: #aeb7c5; /* Metallic silver */
+  --accent-shadow: #6d7788; /* Steel shadow */
 
   /* Legacy aliases mapping to new semantic names - to be removed after refactor */
   --color-deep-abyss: var(--bg-primary);
@@ -240,13 +240,8 @@ a,
 }
 
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-/* Custom cursor - eye icon for project images */
-.cursor-eye {
-  cursor: url('/cursors/eye.svg') 16 16, pointer;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 /* Entrance Animations */

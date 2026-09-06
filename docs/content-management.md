@@ -1,45 +1,45 @@
-# Content Management Guide
+# Content Management
 
-## Add a new project
+## Overview
 
-1. Create a markdown file in `src/content/projects/`.
-2. Add frontmatter fields:
-   - `title` (string)
-   - `slug` (string, unique)
-   - `category` (must match `src/content/projects/config.ts`)
-   - `order` (number)
-   - `images` (optional array of `{ name, url }`)
-3. Write project body in markdown.
-4. Open `/tqdat410/projects` and verify:
-   - file appears in correct folder
-   - markdown shows in raw + preview
-   - image popup opens correctly
+All public portfolio content is stored in the repository. Update the smallest owning source, preview the affected route, synchronize `public/llms.txt` when public facts change, then run `npm run check`.
 
-## Add or update certificates
+## Profile and contact
 
-1. Edit `src/content/certificates/certificates.md`.
-2. Keep frontmatter structure:
-   - `categories[].name` must match `src/content/certificates/config.ts`
-   - `categories[].items[]` with `name`, `title`, `provider`, `url`
-3. If `url` is empty, item remains documented but hidden in file list.
-4. Open `/tqdat410/certificates` and verify tree + link opening.
+| Content | Owner |
+|---|---|
+| Name, description, CV links | `src/content/site/hero.ts` |
+| Bio, education, experience, skills | `src/content/site/about.ts` |
+| Contact and social links | `src/content/site/contact.ts` |
 
-## Update homepage content
+CV source files are `cv_en.html` and `cv_ats_en.html`; the public download URLs live in `src/content/site/hero.ts`. Keep those URLs synchronized when publishing new CV versions.
 
-- Hero: `src/content/site/hero.ts`
-- About + skills + experience: `src/content/site/about.ts`
-- Projects showcase cards: `src/content/site/projects.ts`
-- Contact + social links: `src/content/site/contact.ts`
+## Projects
 
-## Update AI-readable content
+Create or edit a `.md` file in `src/content/projects/`. The required frontmatter fields are:
 
-- Public LLM summary: `public/llms.txt`
-- Keep it aligned when profile, project, certificate, or public contact content changes.
-- Exclude sensitive details such as phone numbers, secret values, local paths, private plans, and access credentials.
+- `title`: display name.
+- `slug`: unique stable identifier.
+- `category`: a value from `src/content/projects/config.ts`.
+- `order`: position inside the category.
+- `images`: optional `{ name, url }` entries.
 
-## Notes
+Files with another extension, including `.md.archived`, are intentionally not published. Preview changes at `/tqdat410/projects`.
 
-- Primary brand colors are centralized in `src/app/globals.css` via:
-  - `--brand-bg: #0c0c0c`
-  - `--brand-fg: #fafafa`
-- Preserve category names to avoid parser rejection.
+## Certificates
+
+Edit `src/content/certificates/certificates.md`. Category names must match `src/content/certificates/config.ts`. Every item needs `name`, `title`, `provider`, and `url`; entries with an empty URL stay documented but are hidden from the Explorer list.
+
+Preview changes at `/tqdat410/certificates`.
+
+## AI-readable profile
+
+Update `public/llms.txt` whenever profile, project, certificate, CV, or public contact facts change. Include only public information; exclude credentials, private plans, local paths, and private contact data.
+
+## Update checklist
+
+1. Edit the owning source.
+2. Preview the affected route at mobile and desktop widths.
+3. Update `public/llms.txt` when public facts changed.
+4. Run `npm run check`.
+5. Review the Git diff before committing.

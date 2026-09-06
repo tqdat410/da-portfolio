@@ -2,11 +2,11 @@ import "server-only";
 
 import fs from "node:fs/promises";
 import path from "node:path";
-import matter from "gray-matter";
 import {
   CERTIFICATE_CATEGORY_ORDER,
   type CertificateCategoryName,
 } from "@/content/certificates/config";
+import { parseMarkdownFrontmatter } from "@/lib/markdown-frontmatter";
 
 const CERTIFICATES_CONTENT_FILE = path.join(
   process.cwd(),
@@ -118,7 +118,7 @@ function parseFrontmatter(raw: unknown): CertificatesFrontmatter | null {
 
 export async function getCertificatesDoc(): Promise<CertificateMarkdownDoc> {
   const rawFile = await fs.readFile(CERTIFICATES_CONTENT_FILE, "utf8");
-  const parsed = matter(rawFile);
+  const parsed = parseMarkdownFrontmatter(rawFile);
   const frontmatter = parseFrontmatter(parsed.data);
 
   if (!frontmatter) {

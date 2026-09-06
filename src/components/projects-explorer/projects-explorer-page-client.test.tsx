@@ -41,7 +41,14 @@ const docs: ProjectMarkdownDoc[] = [
 const tree: ProjectsTreeCategory[] = [
   {
     name: "SAP",
-    projects: [{ slug: "demo-project", title: "Demo Project", fileName: "demo-project.md", images: [{ name: "website.png", url: "https://example.com/website.png" }] }],
+    projects: [
+      {
+        slug: "demo-project",
+        title: "Demo Project",
+        fileName: "demo-project.md",
+        images: [{ name: "website.png", url: "https://example.com/website.png" }],
+      },
+    ],
   },
 ];
 
@@ -100,7 +107,9 @@ describe("ProjectsExplorerPageClient", () => {
     fireEvent.click(screen.getByRole("button", { name: "Expand Demo Project" }));
     fireEvent.doubleClick(screen.getByRole("treeitem", { name: "website.png" }));
 
-    expect(mockReplace).toHaveBeenCalledWith(expect.stringContaining("image=demo-project%3Awebsite.png"));
+    expect(mockReplace).toHaveBeenCalledWith(
+      expect.stringContaining("image=demo-project%3Awebsite.png")
+    );
   });
 
   it("maps legacy project query to file slug", () => {

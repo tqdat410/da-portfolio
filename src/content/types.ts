@@ -1,8 +1,5 @@
 export type ProjectCategory =
-  | "SAP"
-  | "Startup"
-  | "University Course Projects"
-  | "Personal / Creative Side Projects";
+  "SAP" | "Startup" | "University Course Projects" | "Personal / Creative Side Projects";
 
 export interface ProjectLink {
   label: string;
@@ -57,19 +54,6 @@ export interface AboutContent {
   certificates: { items: CertificateGroup[] };
 }
 
-export interface ProjectsContent {
-  title: string;
-}
-
-export interface ShowcaseItem {
-  category: ProjectCategory;
-  title: string;
-  description: string;
-  techStack: string[];
-  mainImage: string;
-  secondaryImage: string;
-}
-
 export interface ContactContent {
   title: string;
   email: string;
@@ -89,8 +73,6 @@ export interface SocialLinks {
 export interface PortfolioContent {
   hero: HeroContent;
   about: AboutContent;
-  projects: ProjectsContent;
-  showcase: { items: ShowcaseItem[] };
   contact: ContactContent;
   social: SocialLinks;
 }

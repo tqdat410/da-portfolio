@@ -5,12 +5,12 @@ import { Renderer, Camera, Geometry, Program, Mesh } from "ogl";
 
 const defaultColors = ["#ffffff", "#ffffff", "#ffffff"];
 
-const hexToRgb = hex => {
+const hexToRgb = (hex) => {
   hex = hex.replace(/^#/, "");
   if (hex.length === 3) {
     hex = hex
       .split("")
-      .map(c => c + c)
+      .map((c) => c + c)
       .join("");
   }
   const int = parseInt(hex, 16);
@@ -98,7 +98,7 @@ const Particles = ({
   cameraDistance = 20,
   disableRotation = false,
   pixelRatio = 1,
-  className
+  className,
 }) => {
   const containerRef = useRef(null);
   const mouseRef = useRef({ x: 0, y: 0 });
@@ -235,7 +235,7 @@ const Particles = ({
     sizeRandomness,
     cameraDistance,
     disableRotation,
-    pixelRatio
+    pixelRatio,
   ]);
 
   return <div ref={containerRef} className={`relative h-full w-full ${className ?? ""}`} />;

@@ -121,4 +121,3 @@ export function ImagePreviewModal({ open, imageName, imageUrl, onClose }: ImageP
     </>
   );
 }
-

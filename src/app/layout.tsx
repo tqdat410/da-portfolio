@@ -54,9 +54,9 @@ export const metadata: Metadata = {
     siteName: content.hero.name,
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
+        url: "/hero-section.png",
+        width: 1385,
+        height: 779,
         alt: `${content.hero.name} | ${content.hero.role}`,
       },
     ],
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     title: `${content.hero.name} | ${content.hero.role}`,
     description: content.hero.description,
     creator: "@trandat40",
-    images: ["/og-image.png"],
+    images: ["/hero-section.png"],
   },
   robots: {
     index: true,
@@ -84,9 +84,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${ubuntu.variable} ${geistMono.variable}`}>
-      <body className="bg-midnight text-light-mint antialiased">
-        {children}
-      </body>
+      <body className="bg-midnight text-light-mint antialiased">{children}</body>
     </html>
   );
 }
