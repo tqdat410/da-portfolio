@@ -4,7 +4,7 @@
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-09-06",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
-  "routes": [{ "pattern": "tranquocdat.com", "custom_domain": true }],
+  "routes": [{ "pattern": "tranquocdat.com/*", "zone_name": "tranquocdat.com" }],
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS",
