@@ -16,6 +16,7 @@ Da'portfolio is a small, content-first portfolio. The repository intentionally a
 | Markdown loading and validation | `src/lib/projects-markdown.ts`, `src/lib/certificates-markdown.ts` |
 | GitHub calendar integration | `src/app/api/github-contribution-calendar/`, `src/lib/github-contributions.ts` |
 | Brand tokens and global effects | `src/app/globals.css` |
+| Cloudflare Workers deployment | `wrangler.jsonc`, `open-next.config.ts` |
 
 ## Decisions
 
@@ -31,6 +32,10 @@ Project and certificate files are read only by server modules. Their frontmatter
 
 The browser calls the internal contribution-calendar route. GitHub credentials stay in server environment variables and the upstream response is cached. The About section must degrade gracefully when the token or upstream API is unavailable.
 
+### Deployment runtime
+
+OpenNext packages the Next.js application for Cloudflare Workers. The Worker serves static assets and the contribution-calendar route from one deployment; `wrangler.jsonc` is the deployment authority. Keep secrets in Cloudflare Worker secrets, never in repository configuration.
+
 ### Visual effects
 
 The homepage uses OGL effects selectively. Mobile layouts and reduced-motion preferences take priority over visual density. Do not add another graphics stack unless an implemented effect requires it.
@@ -45,4 +50,4 @@ The homepage uses OGL effects selectively. Mobile layouts and reduced-motion pre
 
 ## Verification
 
-`npm run check` is the release gate. The executable definition in `package.json` and the CI workflow are authoritative.
+`npm run check` is the release gate and includes the sanitized OpenNext Worker build. The executable definition in `package.json` and the CI workflow are authoritative.

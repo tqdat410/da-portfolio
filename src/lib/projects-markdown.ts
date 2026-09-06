@@ -1,12 +1,9 @@
 import "server-only";
 
-import fs from "node:fs/promises";
-import path from "node:path";
 import { PROJECT_CATEGORY_ORDER } from "@/content/projects/config";
+import { PROJECT_MARKDOWN_FILES } from "@/content/projects/project-markdown-content";
 import type { ProjectCategory } from "@/content";
 import { parseMarkdownFrontmatter } from "@/lib/markdown-frontmatter";
-
-const PROJECTS_CONTENT_DIR = path.join(process.cwd(), "src", "content", "projects");
 
 interface ProjectFrontmatter {
   title: string;
@@ -79,24 +76,17 @@ function parseFrontmatter(raw: unknown, fileName: string): ProjectFrontmatter | 
 }
 
 export async function getAllProjectDocs(): Promise<ProjectMarkdownDoc[]> {
-  const files = await fs.readdir(PROJECTS_CONTENT_DIR);
-  const markdownFiles = files.filter((file) => file.endsWith(".md"));
+  const docs = PROJECT_MARKDOWN_FILES.map(({ fileName, raw }) => {
+    const parsed = parseMarkdownFrontmatter(raw);
+    const frontmatter = parseFrontmatter(parsed.data, fileName);
+    if (!frontmatter) return null;
 
-  const docs = await Promise.all(
-    markdownFiles.map(async (fileName) => {
-      const absolutePath = path.join(PROJECTS_CONTENT_DIR, fileName);
-      const raw = await fs.readFile(absolutePath, "utf8");
-      const parsed = parseMarkdownFrontmatter(raw);
-      const frontmatter = parseFrontmatter(parsed.data, fileName);
-      if (!frontmatter) return null;
-
-      return {
-        ...frontmatter,
-        fileName,
-        rawMarkdown: parsed.content.trim(),
-      } satisfies ProjectMarkdownDoc;
-    })
-  );
+    return {
+      ...frontmatter,
+      fileName,
+      rawMarkdown: parsed.content.trim(),
+    } satisfies ProjectMarkdownDoc;
+  });
 
   return docs
     .filter((doc): doc is ProjectMarkdownDoc => doc !== null)

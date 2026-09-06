@@ -1,20 +1,11 @@
 import "server-only";
 
-import fs from "node:fs/promises";
-import path from "node:path";
+import certificatesMarkdown from "@/content/certificates/certificates.md";
 import {
   CERTIFICATE_CATEGORY_ORDER,
   type CertificateCategoryName,
 } from "@/content/certificates/config";
 import { parseMarkdownFrontmatter } from "@/lib/markdown-frontmatter";
-
-const CERTIFICATES_CONTENT_FILE = path.join(
-  process.cwd(),
-  "src",
-  "content",
-  "certificates",
-  "certificates.md"
-);
 
 export interface CertificatePdfItem {
   name: string;
@@ -117,8 +108,7 @@ function parseFrontmatter(raw: unknown): CertificatesFrontmatter | null {
 }
 
 export async function getCertificatesDoc(): Promise<CertificateMarkdownDoc> {
-  const rawFile = await fs.readFile(CERTIFICATES_CONTENT_FILE, "utf8");
-  const parsed = parseMarkdownFrontmatter(rawFile);
+  const parsed = parseMarkdownFrontmatter(certificatesMarkdown);
   const frontmatter = parseFrontmatter(parsed.data);
 
   if (!frontmatter) {

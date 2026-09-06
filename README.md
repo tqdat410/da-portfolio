@@ -34,6 +34,10 @@ npm run check
 
 Individual scripts are defined in [`package.json`](package.json). CI runs on pull requests and pushes to `main` through [`.github/workflows/quality.yml`](.github/workflows/quality.yml).
 
+## Deployment
+
+The production app runs on Cloudflare Workers through the OpenNext adapter. After `wrangler login`, use `npm run preview` for a Workers-runtime preview or `npm run deploy` to run a sanitized build and deploy. Configure `GITHUB_GRAPHQL_TOKEN` in an ignored `.dev.vars` file for local Workers previews and as a Worker secret in production. The release gate also builds the Worker bundle, so adapter regressions fail before deployment.
+
 ## Maintaining content
 
 See [Content management](docs/content-management.md). Architecture decisions and visual constraints live in [System architecture](docs/system-architecture.md) and [Design guidelines](docs/design-guidelines.md).

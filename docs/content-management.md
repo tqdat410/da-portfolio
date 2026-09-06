@@ -16,7 +16,7 @@ CV source files are `cv_en.html` and `cv_ats_en.html`; the public download URLs 
 
 ## Projects
 
-Create or edit a `.md` file in `src/content/projects/`. The required frontmatter fields are:
+Create or edit a `.md` file in `src/content/projects/`. Register each new file in `src/content/projects/project-markdown-content.ts` so its content is bundled for the production runtime. The required frontmatter fields are:
 
 - `title`: display name.
 - `slug`: unique stable identifier.
