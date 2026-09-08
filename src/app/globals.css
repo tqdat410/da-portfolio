@@ -365,8 +365,13 @@ a,
   display: none;
 }
 
-/* Blend helper for consistent mobile/desktop rendering */
-.blend-difference {
-  mix-blend-mode: difference;
-  -webkit-mix-blend-mode: difference;
+@media (forced-colors: active) {
+  .hero-visual-canvas {
+    display: none !important;
+  }
+
+  #home h1,
+  #home p {
+    color: CanvasText !important;
+  }
 }
