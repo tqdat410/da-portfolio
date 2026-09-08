@@ -3,8 +3,6 @@ import type { ContactContent, SocialLinks } from "@/content/types";
 export const contact: ContactContent = {
   title: "Get in Touch",
   email: "tqdat410@gmail.com",
-  phone: "+84 901600791",
-  linktree: "https://linktr.ee/tqdat410",
 };
 
 export const social: SocialLinks = {

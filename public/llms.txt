@@ -74,7 +74,6 @@ Tran Quoc Dat has hands-on SAP technical experience from university capstone wor
 - [Certificates](https://tranquocdat.com/tqdat410/certificates): Certificate explorer
 - [GitHub](https://github.com/tqdat410): Public source code and engineering activity
 - [LinkedIn](https://www.linkedin.com/in/tqdat410): Professional profile
-- [Linktree](https://linktr.ee/tqdat410): Public link hub
 - [Email](mailto:tqdat410@gmail.com): Public email contact
 
 ## Optional
@@ -86,4 +85,4 @@ Tran Quoc Dat has hands-on SAP technical experience from university capstone wor
 
 ## Privacy Notes
 
-This file intentionally excludes phone number, environment variables, secret values, local filesystem paths, private implementation notes, access credentials, and non-public repository details. Use the public links above for current portfolio, project, certificate, and contact information.
+This file intentionally excludes environment variables, secret values, local filesystem paths, private implementation notes, access credentials, and non-public repository details. Use the public links above for current portfolio, project, certificate, and contact information.

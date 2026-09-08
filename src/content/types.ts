@@ -57,8 +57,6 @@ export interface AboutContent {
 export interface ContactContent {
   title: string;
   email: string;
-  phone: string;
-  linktree: string;
 }
 
 export interface SocialLinks {
