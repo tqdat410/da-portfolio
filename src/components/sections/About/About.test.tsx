@@ -207,12 +207,15 @@ describe("About Section", () => {
 
   it("renders terminal chrome and sections", () => {
     render(<About />);
-    expect(screen.getByText(/tqdat410.*-zsh.*80x24/i)).toBeInTheDocument();
+    const terminalTitle = screen.getByTestId("about-terminal-title");
+    expect(terminalTitle).toHaveTextContent(/tqdat410.*-zsh.*80x24/i);
+    expect(terminalTitle.querySelector("span")).toHaveClass("hidden", "md:inline");
     expect(screen.getByText(/Last login:/i)).toBeInTheDocument();
     expect(screen.getAllByText(/tqdat410@portfolio ~ %/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/npm install -g da-portfolio@latest/i)).toBeInTheDocument();
     expect(screen.getByText(/dp --version/i)).toBeInTheDocument();
     expect(screen.getByText(/dp --info/i)).toBeInTheDocument();
+    expect(screen.getByTestId("about-terminal-body")).toHaveClass("no-scrollbar", "overflow-auto");
   });
 
   it("renders command result text", () => {

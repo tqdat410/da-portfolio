@@ -293,7 +293,10 @@ export function About() {
                   />
                 </svg>
               </span>
-              <span>tqdat410 — -zsh — 80x24</span>
+              <span data-testid="about-terminal-title">
+                tqdat410
+                <span className="hidden md:inline"> — -zsh — 80x24</span>
+              </span>
             </p>
             <span className="w-14" aria-hidden="true" />
           </div>
@@ -301,7 +304,7 @@ export function About() {
           <div
             ref={terminalBodyRef}
             data-testid="about-terminal-body"
-            className="h-[560px] overflow-auto rounded-b-xl bg-[#0d1117] px-4 py-5 md:px-6 md:py-6 font-sans text-[var(--brand-fg)]"
+            className="no-scrollbar h-[560px] overflow-auto rounded-b-xl bg-[#0d1117] px-4 py-5 font-sans text-[var(--brand-fg)] md:px-6 md:py-6"
           >
             <div
               ref={terminalContentRef}
