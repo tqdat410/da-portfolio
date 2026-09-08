@@ -38,7 +38,7 @@ export function Navbar() {
 
   return (
     <nav
-      className="hidden md:flex fixed bottom-8 left-8 z-50 flex-col items-start -space-y-5 pb-[env(safe-area-inset-bottom)]"
+      className="fixed bottom-8 left-8 z-50 hidden flex-col items-start pb-[env(safe-area-inset-bottom)] md:flex"
       role="navigation"
       aria-label="Main Navigation"
     >
@@ -52,7 +52,7 @@ export function Navbar() {
             href={item.href}
             onClick={(e) => handleClick(e, item.href)}
             className={`
-              block transition-all duration-500 ease-out origin-left
+              group inline-flex items-center text-base leading-none
               ${
                 hasInitialAnimationCompleted
                   ? ""
@@ -62,16 +62,30 @@ export function Navbar() {
               }
               ${item.font} tracking-wide
               ${baseTextColor}
-              ${
-                isActive
-                  ? "text-lg opacity-100 font-bold"
-                  : "text-md opacity-60 hover:opacity-90 hover:scale-105"
-              }
             `}
-            style={{ animationDelay: `${0.6 + index * 0.2}s`, animationFillMode: "backwards" }}
+            style={{
+              height: "2rem",
+              minHeight: "2rem",
+              animationDelay: `${0.6 + index * 0.2}s`,
+              animationFillMode: "backwards",
+            }}
             aria-current={isActive ? "page" : undefined}
           >
-            {item.label}
+            <span
+              data-nav-label
+              className={`relative inline-block origin-left transition-[transform,opacity] duration-700 ease-out ${
+                isActive
+                  ? "scale-110 font-bold opacity-100"
+                  : "scale-95 font-normal opacity-55 group-hover:opacity-90"
+              }`}
+            >
+              {item.label}
+              <span
+                data-nav-underline
+                aria-hidden="true"
+                className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-500 ease-out group-hover:scale-x-100"
+              />
+            </span>
           </a>
         );
       })}

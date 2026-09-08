@@ -162,6 +162,9 @@ export function TopToolbar() {
 
   const showSolidBackground = activeSection === "about";
   const isLightTheme = showSolidBackground;
+  const scrollbarThemeCss = isLightTheme
+    ? ":root { --scrollbar-track: var(--brand-fg); --scrollbar-thumb: var(--brand-bg); }"
+    : ":root { --scrollbar-track: var(--brand-bg); --scrollbar-thumb: var(--brand-fg); }";
 
   const headerClass = isMobile
     ? `justify-center ${
@@ -192,6 +195,7 @@ export function TopToolbar() {
 
   return (
     <>
+      <style data-scrollbar-theme>{scrollbarThemeCss}</style>
       <header
         className={`fixed top-0 left-0 right-0 z-[70] flex w-full max-w-full items-center overflow-x-clip px-4 py-3 transition-all duration-300 md:px-8 md:py-4 ${headerClass}`}
       >
