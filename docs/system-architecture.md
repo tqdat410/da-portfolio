@@ -38,7 +38,7 @@ OpenNext packages the Next.js application for Cloudflare Workers. The Worker ser
 
 ### Visual effects
 
-The homepage uses OGL effects selectively. Mobile layouts and reduced-motion preferences take priority over visual density. Do not add another graphics stack unless an implemented effect requires it.
+The Hero uses a project-owned raw WebGL1 renderer rather than browser compositing: one opaque pass resolves its background, metaballs, and inverse text color. `src/components/animations/HeroVisual.tsx` owns capability checks and the responsive lifecycle around the renderer and text-mask helpers in the same directory. Semantic DOM content remains the static-first fallback for accessibility preferences, unavailable capabilities, and runtime failures; rendering pauses while the Hero or document is not visible and responsive geometry changes rebuild from current measurements. The Contact section continues to use OGL for particles. Mobile layouts and accessibility preferences take priority over visual density; do not add another graphics stack unless an implemented effect requires it.
 
 ## Public contracts
 
