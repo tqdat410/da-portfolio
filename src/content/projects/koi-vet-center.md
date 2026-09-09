@@ -1,11 +1,8 @@
 ---
 title: "Koi Vet. Center"
 slug: "koi-vet-center"
-category: "University Course Projects"
-order: 1
-images:
-  - name: "image.png"
-    url: "https://res.cloudinary.com/do6szo7zy/image/upload/f_auto,q_auto/v1764146664/koi_qacrdx.png"
+summary: "A veterinary center platform covering bookings, billing, treatment records, staff schedules, and administration."
+order: 3
 ---
 
 ## Overview

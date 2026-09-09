@@ -8,7 +8,6 @@ import {
 import { parseMarkdownFrontmatter } from "@/lib/markdown-frontmatter";
 
 export interface CertificatePdfItem {
-  name: string;
   title: string;
   provider: string;
   url: string;
@@ -21,20 +20,10 @@ export interface CertificateCategory {
 
 interface CertificatesFrontmatter {
   title: string;
-  slug: string;
-  order: number;
   categories: CertificateCategory[];
 }
 
-export interface CertificateMarkdownDoc extends CertificatesFrontmatter {
-  fileName: string;
-  rawMarkdown: string;
-}
-
-export interface CertificatesTreeCategory {
-  name: CertificateCategoryName;
-  items: CertificatePdfItem[];
-}
+export type CertificateDocument = CertificatesFrontmatter;
 
 function isValidCategory(value: string): value is CertificateCategoryName {
   return CERTIFICATE_CATEGORY_ORDER.includes(value as CertificateCategoryName);
@@ -44,7 +33,6 @@ function parseItem(raw: unknown): CertificatePdfItem | null {
   if (!raw || typeof raw !== "object") return null;
   const item = raw as Partial<CertificatePdfItem>;
   if (
-    typeof item.name !== "string" ||
     typeof item.title !== "string" ||
     typeof item.provider !== "string" ||
     typeof item.url !== "string"
@@ -53,7 +41,6 @@ function parseItem(raw: unknown): CertificatePdfItem | null {
   }
 
   return {
-    name: item.name,
     title: item.title,
     provider: item.provider,
     url: item.url,
@@ -81,12 +68,7 @@ function parseFrontmatter(raw: unknown): CertificatesFrontmatter | null {
   if (!raw || typeof raw !== "object") return null;
   const data = raw as Partial<CertificatesFrontmatter>;
 
-  if (
-    typeof data.title !== "string" ||
-    typeof data.slug !== "string" ||
-    typeof data.order !== "number" ||
-    !Array.isArray(data.categories)
-  ) {
+  if (typeof data.title !== "string" || !Array.isArray(data.categories)) {
     return null;
   }
 
@@ -101,13 +83,11 @@ function parseFrontmatter(raw: unknown): CertificatesFrontmatter | null {
 
   return {
     title: data.title,
-    slug: data.slug,
-    order: data.order,
     categories,
   };
 }
 
-export async function getCertificatesDoc(): Promise<CertificateMarkdownDoc> {
+export async function getCertificatesDoc(): Promise<CertificateDocument> {
   const parsed = parseMarkdownFrontmatter(certificatesMarkdown);
   const frontmatter = parseFrontmatter(parsed.data);
 
@@ -115,16 +95,5 @@ export async function getCertificatesDoc(): Promise<CertificateMarkdownDoc> {
     throw new Error("[certificates-markdown] Invalid frontmatter in certificates.md");
   }
 
-  return {
-    ...frontmatter,
-    fileName: "certificates.md",
-    rawMarkdown: parsed.content.trim(),
-  };
-}
-
-export function buildCertificatesTree(doc: CertificateMarkdownDoc): CertificatesTreeCategory[] {
-  return doc.categories.map((category) => ({
-    name: category.name,
-    items: category.items.filter((item) => item.url.trim().length > 0),
-  }));
+  return frontmatter;
 }

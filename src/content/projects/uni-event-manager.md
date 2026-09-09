@@ -1,11 +1,8 @@
 ---
 title: "Uni. Event Manager"
 slug: "uni-event-manager"
-category: "University Course Projects"
-order: 2
-images:
-  - name: "image.png"
-    url: "https://res.cloudinary.com/do6szo7zy/image/upload/f_auto,q_auto/v1764146663/event_pzqhw3.png"
+summary: "A university event platform for publishing, registration, QR attendance, surveys, and result exports."
+order: 4
 ---
 
 ## Overview

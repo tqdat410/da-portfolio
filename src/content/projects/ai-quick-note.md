@@ -1,11 +1,8 @@
 ---
 title: "AI Quick Note"
 slug: "ai-quick-note"
-category: "University Course Projects"
-order: 3
-images:
-  - name: "image.png"
-    url: "https://res.cloudinary.com/do6szo7zy/image/upload/f_auto,q_auto/v1764146664/android_jj7kcd.png"
+summary: "An Android notes product with multi-format capture, AI categorization, semantic search, and RAG-based chat."
+order: 5
 ---
 
 ## Overview

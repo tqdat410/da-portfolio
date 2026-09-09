@@ -1,13 +1,8 @@
 ---
 title: "Custom Notification Center"
 slug: "custom-notification-center"
-category: "SAP"
+summary: "A real-time notification experience for SAP S/4HANA, built with RAP, OData, Fiori/UI5, and AMC/APC."
 order: 1
-images:
-  - name: "main-screen.png"
-    url: "https://res.cloudinary.com/do6szo7zy/image/upload/f_auto,q_auto/v1771401913/Screenshot_2026-02-18_103313_wdykbu.png"
-  - name: "bell.png"
-    url: "https://res.cloudinary.com/do6szo7zy/image/upload/f_auto,q_auto/v1771419137/Screenshot_2026-02-18_103334_e4juv5.png"
 ---
 
 ## Overview

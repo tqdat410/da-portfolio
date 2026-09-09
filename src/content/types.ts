@@ -1,6 +1,3 @@
-export type ProjectCategory =
-  "SAP" | "Startup" | "University Course Projects" | "Personal / Creative Side Projects";
-
 export interface ProjectLink {
   label: string;
   url: string;

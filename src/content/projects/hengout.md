@@ -1,19 +1,8 @@
 ---
 title: "Hengout"
 slug: "hengout"
-category: "Startup"
-order: 1
-images:
-  - name: "mobile-app.jpg"
-    url: "https://res.cloudinary.com/do6szo7zy/image/upload/f_auto,q_auto/v1771422596/z7544909474764_facca3ffd90118ef516bf2dc164623b9_qeoy6n.jpg"
-  - name: "website.png"
-    url: "https://res.cloudinary.com/do6szo7zy/image/upload/f_auto,q_auto/v1771402560/ho_web_rm5o1v_e9zpsg.png"
-  - name: "food.jpg"
-    url: "https://res.cloudinary.com/do6szo7zy/image/upload/f_auto,q_auto/v1771422818/z7130986853646_be9a74ef214a7c23f119d844cc3d6565_t6p8qf.jpg"
-  - name: "cert-fr.heic"
-    url: "https://res.cloudinary.com/do6szo7zy/image/upload/f_auto,q_auto/v1773421869/IMG_1803_qe9dux.heic"
-  - name: "cert-bk.heic"
-    url: "https://res.cloudinary.com/do6szo7zy/image/upload/f_auto,q_auto/v1773421869/IMG_1804_vpiwcf.heic"
+summary: "A Gen Z location discovery product combining AI recommendations, group decisions, and production mobile delivery."
+order: 2
 ---
 
 ## Overview
