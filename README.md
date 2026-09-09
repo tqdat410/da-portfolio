@@ -9,9 +9,9 @@ Personal portfolio for Tran Quoc Dat, built with Next.js, React, TypeScript, and
 ## Experiences
 
 - `/` — portfolio homepage with profile, experience, and contact details.
-- `/tqdat410` — Finder-style launcher.
-- `/tqdat410/projects` — Markdown-backed project explorer.
-- `/tqdat410/certificates` — certificate explorer.
+- `/projects` — selected project index.
+- `/projects/[slug]` — Markdown-backed project case study.
+- `/certificates` — professional and academic certificate index.
 
 ## Local development
 
@@ -37,6 +37,8 @@ Individual scripts are defined in [`package.json`](package.json). CI runs on pul
 ## Deployment
 
 The production app runs on Cloudflare Workers through the OpenNext adapter. After `wrangler login`, use `npm run preview` for a Workers-runtime preview or `npm run deploy` to run a sanitized build and deploy. Configure `GITHUB_GRAPHQL_TOKEN` in an ignored `.dev.vars` file for local Workers previews and as a Worker secret in production. The release gate also builds the Worker bundle, so adapter regressions fail before deployment.
+
+See [Deployment](docs/deployment.md) for the production target and rollback command.
 
 ## Maintaining content
 

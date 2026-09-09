@@ -10,8 +10,8 @@
 - GPA: 3.75/4.0
 - Professional focus: software engineering, SAP technical development, full-stack product delivery, web and mobile applications
 - Current portfolio: [Da'portfolio](https://tranquocdat.com/)
-- Project explorer: [My projects](https://tranquocdat.com/tqdat410/projects)
-- Certificate explorer: [Certificates](https://tranquocdat.com/tqdat410/certificates)
+- Selected projects: [My projects](https://tranquocdat.com/projects)
+- Certificates: [Credentials](https://tranquocdat.com/certificates)
 
 ## Technical Skills
 
@@ -32,31 +32,18 @@ Tran Quoc Dat has hands-on SAP technical experience from university capstone wor
 
 ## Selected Projects
 
-- [Custom Notification Center](https://tranquocdat.com/tqdat410/projects): SAP capstone graduation project. Built a centralized notification center inside SAP S/4HANA with bell badge, dropdown notification list, read/unread controls, archive/delete actions, subscription settings, ABAP APIs, RAP/OData services, Fiori/UI5 UI, and near real-time delivery using WebSocket and AMC/APC. Role: Team Leader for a 4-member team.
-- [Hengout](https://hengout.app): Startup product for GenZ location discovery. Built personalized venue recommendations, group consensus suggestions, event-driven updates with Kafka, Redis caching, Apple In-App Purchase integration, Grafana monitoring, CI/CD, VPS deployment, and App Store delivery. Role: Tech Lead. Result: won a 50 million VND scholarship from FPT University and shipped to the App Store.
-- [Uni. Event Manager](https://tranquocdat.com/tqdat410/projects): University course project for event management workflows. Focused on backend design, frontend integration, and practical team delivery.
-- [Koi Vet. Center](https://tranquocdat.com/tqdat410/projects): University course project for veterinary service workflows. Focused on full-stack application development and database-backed business features.
-- [AI Quick Note](https://tranquocdat.com/tqdat410/projects): University course project exploring AI-assisted note workflows and practical application design.
-- [Da'portfolio](https://tranquocdat.com/): Personal portfolio built with Next.js, React, TypeScript, Tailwind CSS, Markdown-driven project content, and a GitHub contribution calendar backed by the GitHub GraphQL API.
-- [agentune](https://tranquocdat.com/tqdat410/projects): Personal creative side project focused on AI-agent workflow experimentation.
-- [Balance of Interest](https://tranquocdat.com/tqdat410/projects): Personal creative side project with AI-assisted research and content workflow.
-- [Social Revolution](https://tranquocdat.com/tqdat410/projects): Educational storytelling project with structured historical content and interactive web presentation.
-- [Debate 1911](https://tranquocdat.com/tqdat410/projects): Personal creative side project focused on debate-oriented historical content and web presentation.
+- [Custom Notification Center](https://tranquocdat.com/projects/custom-notification-center): SAP capstone graduation project. Built a centralized notification center inside SAP S/4HANA with bell badge, dropdown notification list, read/unread controls, archive/delete actions, subscription settings, ABAP APIs, RAP/OData services, Fiori/UI5 UI, and near real-time delivery using WebSocket and AMC/APC. Role: Team Leader for a 4-member team.
+- [Hengout](https://tranquocdat.com/projects/hengout): Startup product for Gen Z location discovery. Built personalized venue recommendations, group consensus suggestions, event-driven updates with Kafka, Redis caching, Apple In-App Purchase integration, Grafana monitoring, CI/CD, VPS deployment, and App Store delivery. Role: Tech Lead. Result: won a 50 million VND scholarship from FPT University and shipped to the App Store.
+- [Koi Vet. Center](https://tranquocdat.com/projects/koi-vet-center): University course project for veterinary service workflows. Focused on full-stack application development and database-backed business features.
+- [Uni. Event Manager](https://tranquocdat.com/projects/uni-event-manager): University course project for event management workflows. Focused on backend design, frontend integration, and practical team delivery.
+- [AI Quick Note](https://tranquocdat.com/projects/ai-quick-note): University course project exploring AI-assisted note workflows and practical application design.
+- [Other repositories](https://github.com/tqdat410?tab=repositories): Smaller experiments, utilities, and public source code.
 
 ## Certificates And Education
 
 - FPT University: Software Engineering, GPA 3.75/4.0
 - FPT Software: Certificate on the Job Training
 - FPT Software: FSOFT Short Course for Testing
-- FPT University: Academic Preparatory English TRS601 - English 6
-- FPT University: Honorable Student of Trimester Spring 2026
-- FPT University: Excellent Student of Trimester Fall 2025
-- FPT University: Excellent Student of Trimester Summer 2025
-- FPT University: Honorable Student of Trimester Fall 2024
-- FPT University: Honorable Student of Trimester Summer 2024
-- FPT University: Excellent Student of Trimester Spring 2024
-- FPT University: Honorable Student of Trimester Fall 2023
-- FPT University: Excellent Student of Trimester Summer 2023
 - Coursera: Project Management Principles and Practices, University of California, Irvine
 - Coursera: User Experience Research and Design, University of Michigan
 - Coursera: Software Development Lifecycle, University of Minnesota
@@ -70,8 +57,8 @@ Tran Quoc Dat has hands-on SAP technical experience from university capstone wor
 ## Public Links
 
 - [Website](https://tranquocdat.com/): Main portfolio website
-- [Projects](https://tranquocdat.com/tqdat410/projects): Markdown project explorer
-- [Certificates](https://tranquocdat.com/tqdat410/certificates): Certificate explorer
+- [Projects](https://tranquocdat.com/projects): Selected project index and case studies
+- [Certificates](https://tranquocdat.com/certificates): Professional and academic credentials
 - [GitHub](https://github.com/tqdat410): Public source code and engineering activity
 - [LinkedIn](https://www.linkedin.com/in/tqdat410): Professional profile
 - [Email](mailto:tqdat410@gmail.com): Public email contact
@@ -79,7 +66,6 @@ Tran Quoc Dat has hands-on SAP technical experience from university capstone wor
 ## Optional
 
 - [Sitemap](https://tranquocdat.com/sitemap.xml): Canonical crawlable routes
-- [Desktop-style launcher](https://tranquocdat.com/tqdat410): Alternate portfolio launcher experience
 - [Resume (Visual)](https://drive.google.com/file/d/1TC7Kx1XpVvZO2MQyon0FzXYhleKNG3yY/view?usp=sharing): Visual-styled resume
 - [Resume (ATS)](https://drive.google.com/file/d/1EBV0eoSKXHTOCvXIvMh8fDp2PuuWaZDf/view?usp=sharing): ATS-friendly resume, plain text format optimized for applicant tracking systems
 

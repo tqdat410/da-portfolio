@@ -29,9 +29,10 @@ Do not duplicate token values in documentation. Change the CSS owner and visuall
 ## Content constraints
 
 - Prefer concise copy and strong hierarchy over extra cards or sections.
-- Keep project detail in Markdown Explorer pages instead of duplicating it on the homepage.
-- Treat Finder/Explorer visual language as an intentional alternate navigation experience, not a general-purpose design system.
+- Keep project detail in dedicated Markdown-backed case-study pages instead of duplicating it on the homepage.
+- Keep project indexes flat and certificate groups readable without simulated desktop chrome, double-click behavior, or hover-only controls.
+- Keep project indexes and case studies typography-first; project imagery is intentionally excluded.
 
 ## Review
 
-For UI changes, verify the homepage, Finder, project Explorer, and certificate Explorer at mobile and desktop widths. Run `npm run check` before committing.
+For UI changes, verify the homepage, project index and details, and certificate index at mobile and desktop widths. Include physical iPhone Safari when responsive behavior changes. Run `npm run check` before committing.

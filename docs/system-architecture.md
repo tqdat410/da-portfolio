@@ -10,7 +10,7 @@ Da'portfolio is a small, content-first portfolio. The repository intentionally a
 |---|---|
 | Routes and metadata | `src/app/` |
 | Homepage UI | `src/components/story/`, `src/components/sections/`, `src/components/layout/` |
-| Finder and Explorer UI | `src/components/finder/`, `src/components/projects-explorer/`, `src/components/certificates-explorer/` |
+| Project and certificate UI | `src/components/projects/`, `src/components/certificates/`, `src/components/portfolio-pages/` |
 | Profile and contact content | `src/content/site/` |
 | Project and certificate documents | `src/content/projects/`, `src/content/certificates/` |
 | Markdown loading and validation | `src/lib/projects-markdown.ts`, `src/lib/certificates-markdown.ts` |
@@ -26,7 +26,7 @@ TypeScript owns short structured homepage data. Markdown owns long-form project 
 
 ### Server-side content loading
 
-Project and certificate files are read only by server modules. Their frontmatter is parsed through `src/lib/markdown-frontmatter.ts`, then validated by the owning loader before being passed to client Explorer components.
+Project and certificate files are read only by server modules. Their frontmatter is parsed through `src/lib/markdown-frontmatter.ts`, validated by the owning loader, and rendered through server components. Projects use a flat ordered index plus static detail routes; certificates render as one grouped page.
 
 ### GitHub activity boundary
 
@@ -42,8 +42,8 @@ The Hero uses a project-owned raw WebGL1 renderer rather than browser compositin
 
 ## Public contracts
 
-- Keep the four public routes listed in the root README stable.
-- Keep project categories synchronized with `src/content/projects/config.ts`.
+- Keep the canonical public routes listed in the root README stable.
+- Keep project slugs unique and project order synchronized with the published index.
 - Keep certificate categories synchronized with `src/content/certificates/config.ts`.
 - Keep the GitHub calendar API response compatible with its About-section consumer and tests.
 - Keep `public/llms.txt` aligned with public profile and portfolio content.

@@ -20,17 +20,16 @@ Create or edit a `.md` file in `src/content/projects/`. Register each new file i
 
 - `title`: display name.
 - `slug`: unique stable identifier.
-- `category`: a value from `src/content/projects/config.ts`.
-- `order`: position inside the category.
-- `images`: optional `{ name, url }` entries.
+- `summary`: concise project-index description.
+- `order`: position in the flat project index.
 
-Files with another extension, including `.md.archived`, are intentionally not published. Preview changes at `/tqdat410/projects`.
+Files with another extension, including `.md.archived`, are intentionally not published. Preview changes at `/projects`.
 
 ## Certificates
 
-Edit `src/content/certificates/certificates.md`. Category names must match `src/content/certificates/config.ts`. Every item needs `name`, `title`, `provider`, and `url`; entries with an empty URL stay documented but are hidden from the Explorer list.
+Edit `src/content/certificates/certificates.md`. Category names must match `src/content/certificates/config.ts`. Every item needs `title`, `provider`, and `url`; entries with an empty URL stay visible with an unavailable state. Academic records from FPT University belong in profile/education content rather than this certificate index.
 
-Preview changes at `/tqdat410/certificates`.
+Preview changes at `/certificates`.
 
 ## AI-readable profile
 
