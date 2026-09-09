@@ -196,8 +196,10 @@ describe("About Section", () => {
 
   it("renders improved intro with required highlighted keywords", () => {
     render(<About />);
-    expect(screen.getByText("Tran Quoc Dat")).toBeInTheDocument();
-    expect(screen.getByText("FPT University")).toBeInTheDocument();
+    const intro = screen.getByText("Tran Quoc Dat").closest("p");
+    expect(intro).toHaveTextContent("a Software Engineer");
+    expect(intro).toHaveTextContent("I currently work in Ho Chi Minh City");
+    expect(intro).not.toHaveTextContent("FPT University");
     expect(screen.getByText("Ho Chi Minh City")).toBeInTheDocument();
     expect(screen.getByText("SAP")).toBeInTheDocument();
     expect(screen.getByText("AI Tools")).toBeInTheDocument();
@@ -230,7 +232,7 @@ describe("About Section", () => {
   it("renders profile details, highlighted GPA, and certificates summary", () => {
     render(<About />);
     expect(screen.getByText(/Name:\s*Tran Quoc Dat/i)).toBeInTheDocument();
-    expect(screen.getByText("FPT University")).toBeInTheDocument();
+    expect(screen.getByText("[ EDUCATION ]")).toBeInTheDocument();
     expect(screen.getByText("GPA: 3.75/4.0")).toHaveClass("font-semibold");
     expect(
       screen.getByText(new RegExp(`${expectedCourseraTotal}\\+\\s*Coursera\\s*Certificates`, "i"))
@@ -238,13 +240,10 @@ describe("About Section", () => {
     expect(screen.getByText(/FPT Software/i)).toBeInTheDocument();
     expect(screen.getByText(/Certificate on the Job Training/i)).toBeInTheDocument();
     const certificatesLink = screen.getByRole("link", {
-      name: /\/tqdat410\/certificates\?file=certificates\.md&view=preview$/,
+      name: /\/certificates$/,
     });
-    expect(certificatesLink).toHaveAttribute(
-      "href",
-      expect.stringContaining("/tqdat410/certificates?file=certificates.md&view=preview")
-    );
-    expect(certificatesLink).toHaveAttribute("target", "_blank");
+    expect(certificatesLink).toHaveAttribute("href", "/certificates");
+    expect(certificatesLink).not.toHaveAttribute("target");
     expect(screen.getByText("Jan 2025 - Apr 2025")).toBeInTheDocument();
   });
 

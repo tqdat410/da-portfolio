@@ -42,6 +42,20 @@ export const metadata: Metadata = {
   authors: [{ name: content.hero.name }],
   creator: content.hero.name,
   metadataBase: new URL("https://tranquocdat.com"),
+  icons: {
+    icon: [
+      {
+        url: "/qd-logo-black.svg",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/qd-logo-white.svg",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+  },
   alternates: {
     canonical: "/",
   },

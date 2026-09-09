@@ -32,8 +32,8 @@
 :root {
   --brand-bg: #0c0c0c;
   --brand-fg: #fafafa;
-  --scrollbar-track: var(--brand-bg);
-  --scrollbar-thumb: var(--brand-fg);
+  --scrollbar-track: var(--brand-fg);
+  --scrollbar-thumb: var(--brand-bg);
 
   /* Functional Palette */
   --bg-primary: var(--brand-bg); /* Main background */
@@ -174,28 +174,6 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-thumb);
   box-shadow: none;
-}
-
-/* Reverse scrollbar colors for light explorer pages */
-.reverse-scrollbar,
-.reverse-scrollbar * {
-  scrollbar-color: var(--brand-bg) var(--brand-fg);
-}
-
-.reverse-scrollbar::-webkit-scrollbar-track,
-.reverse-scrollbar *::-webkit-scrollbar-track {
-  background: var(--brand-fg);
-}
-
-.reverse-scrollbar::-webkit-scrollbar-thumb,
-.reverse-scrollbar *::-webkit-scrollbar-thumb {
-  background: var(--brand-bg);
-  border-color: var(--brand-fg);
-}
-
-.reverse-scrollbar::-webkit-scrollbar-thumb:hover,
-.reverse-scrollbar *::-webkit-scrollbar-thumb:hover {
-  background: var(--brand-bg);
 }
 
 /* Screen reader only utilities */

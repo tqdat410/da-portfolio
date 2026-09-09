@@ -3,7 +3,9 @@
 import { content } from "@/content";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { useIsMobile } from "@/hooks/useMediaQuery";
-import { ReactNode, useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
 interface ToolbarLinkProps {
   href: string;
@@ -12,6 +14,14 @@ interface ToolbarLinkProps {
   rel?: string;
   inverted?: boolean;
 }
+
+const DESKTOP_BRAND_LABELS = [
+  "Tran Quoc Dat",
+  "Trần Quốc Đạt",
+  "TQD",
+  "tqdat410",
+  "Da'portfolio",
+] as const;
 
 function ToolbarLink({ href, children, target, rel, inverted = false }: ToolbarLinkProps) {
   const hoverBgClass = inverted ? "bg-[var(--brand-bg)]" : "bg-[var(--brand-fg)]";
@@ -147,6 +157,8 @@ export function TopToolbar() {
   const isMobile = useIsMobile();
   const activeSection = useActiveSection(["home", "about", "contact", "footer"]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [desktopBrandLabelIndex, setDesktopBrandLabelIndex] = useState(0);
+  const hasHoveredDesktopBrandRef = useRef(false);
 
   // Sync scroll lock when mobile menu is open
   useEffect(() => {
@@ -166,17 +178,11 @@ export function TopToolbar() {
     ? ":root { --scrollbar-track: var(--brand-fg); --scrollbar-thumb: var(--brand-bg); }"
     : ":root { --scrollbar-track: var(--brand-bg); --scrollbar-thumb: var(--brand-fg); }";
 
-  const headerClass = isMobile
-    ? `justify-center ${
-        isMenuOpen
-          ? "bg-transparent border-none"
-          : showSolidBackground
-            ? "bg-[var(--brand-fg)]/90 backdrop-blur-md border-b border-[var(--brand-bg)]/10"
-            : "bg-[var(--brand-bg)]/90 backdrop-blur-md border-b border-[var(--brand-fg)]/10"
-      } pointer-events-auto transition-all duration-300`
-    : `justify-between ${
-        showSolidBackground ? "bg-[var(--brand-fg)]" : "bg-transparent"
-      } pointer-events-auto`;
+  const headerClass = `justify-center md:justify-between ${
+    showSolidBackground
+      ? "bg-[var(--brand-fg)] border-b border-[var(--brand-bg)]/10 md:border-none"
+      : "bg-[var(--brand-bg)] border-b border-[var(--brand-fg)]/10 md:bg-transparent md:border-none"
+  } pointer-events-auto transition-all duration-300`;
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -187,37 +193,71 @@ export function TopToolbar() {
     }
   };
 
-  const buttonColor = isMenuOpen
-    ? "bg-[var(--brand-fg)]"
-    : isLightTheme
-      ? "bg-[var(--brand-bg)]"
-      : "bg-[var(--brand-fg)]";
+  const handleDesktopBrandMouseEnter = () => {
+    if (!hasHoveredDesktopBrandRef.current) {
+      hasHoveredDesktopBrandRef.current = true;
+      return;
+    }
+
+    setDesktopBrandLabelIndex((currentIndex) =>
+      currentIndex === DESKTOP_BRAND_LABELS.length - 1 ? 0 : currentIndex + 1
+    );
+  };
+
+  const toolbarLogoSrc = isLightTheme ? "/qd-logo-black.svg" : "/qd-logo-white.svg";
+  const desktopBrandTextClass = isLightTheme ? "text-[var(--brand-bg)]" : "text-[var(--brand-fg)]";
+  const mobileMenuThemeClass = isLightTheme
+    ? "bg-[var(--brand-fg)] text-[var(--brand-bg)]"
+    : "bg-[var(--brand-bg)] text-[var(--brand-fg)]";
+  const mobileMenuMutedTextClass = isLightTheme ? "text-neutral-600" : "text-neutral-400";
+  const mobileMenuDividerClass = isLightTheme ? "bg-neutral-400" : "bg-neutral-600";
 
   return (
     <>
       <style data-scrollbar-theme>{scrollbarThemeCss}</style>
       <header
-        className={`fixed top-0 left-0 right-0 z-[70] flex w-full max-w-full items-center overflow-x-clip px-4 py-3 transition-all duration-300 md:px-8 md:py-4 ${headerClass}`}
+        className={`fixed top-0 left-0 right-0 z-[70] flex w-full max-w-full items-center overflow-x-clip px-4 py-4 transition-all duration-300 md:px-8 ${headerClass}`}
       >
-        {/* Email - hidden on mobile */}
+        {/* Brand link - hidden on mobile */}
         <div
           className="hidden md:block pointer-events-auto animate-fade-in-down"
           style={{ animationDelay: "0.5s", animationFillMode: "backwards" }}
         >
           <a
-            href="/tqdat410"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`group relative font-luxurious-roman text-lg tracking-wide ${
-              isLightTheme ? "text-[var(--brand-bg)]" : "text-[var(--brand-fg)]"
-            }`}
+            href="#home"
+            aria-label="Back to home"
+            onClick={(event) => handleScroll(event, "#home")}
+            onMouseEnter={handleDesktopBrandMouseEnter}
+            className="desktop-brand-link group relative flex h-11 w-11 items-center transition-[width] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] hover:w-44 focus-visible:w-44 focus-visible:outline-none"
           >
-            {content.contact.email.toLowerCase()}
-            <span
-              className={`absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 ${
-                isLightTheme ? "bg-[var(--brand-bg)]" : "bg-[var(--brand-fg)]"
-              }`}
+            <Image
+              src={toolbarLogoSrc}
+              alt=""
+              aria-hidden="true"
+              width={36}
+              height={36}
+              unoptimized
+              data-testid="desktop-toolbar-logo"
+              className="absolute top-1 left-1 h-9 w-9 group-hover:-rotate-45 group-hover:opacity-0 group-focus-visible:-rotate-45 group-focus-visible:opacity-0"
+              style={{
+                transitionProperty: "rotate, opacity",
+                transitionDuration: "1200ms, 300ms",
+                transitionTimingFunction:
+                  "cubic-bezier(0.22, 1, 0.36, 1), cubic-bezier(0.4, 0, 1, 1)",
+              }}
             />
+            <span
+              data-testid="desktop-toolbar-name"
+              aria-hidden="true"
+              className={`absolute top-0 left-1 flex h-11 max-w-0 items-center overflow-hidden opacity-0 transition-[max-width,opacity] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:max-w-40 group-hover:opacity-100 group-focus-visible:max-w-40 group-focus-visible:opacity-100 ${desktopBrandTextClass}`}
+            >
+              <span
+                data-testid="desktop-toolbar-name-label"
+                className="whitespace-nowrap font-luxurious-roman text-lg font-bold tracking-wide"
+              >
+                {DESKTOP_BRAND_LABELS[desktopBrandLabelIndex]}
+              </span>
+            </span>
           </a>
         </div>
 
@@ -227,12 +267,7 @@ export function TopToolbar() {
           style={{ animationDelay: "0.8s", animationFillMode: "backwards" }}
         >
           <CvDropdown inverted={isLightTheme} />
-          <ToolbarLink
-            href="/tqdat410/projects?folder=root%3Aprojects&view=preview"
-            target="_blank"
-            rel="noopener noreferrer"
-            inverted={isLightTheme}
-          >
+          <ToolbarLink href="/projects" inverted={isLightTheme}>
             projects
           </ToolbarLink>
           <ToolbarLink
@@ -245,35 +280,30 @@ export function TopToolbar() {
           </ToolbarLink>
         </div>
 
-        {/* Hamburger Menu Toggle (Mobile) - Centered */}
+        {/* Brand menu toggle (Mobile) - Centered */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="relative z-[80] flex h-10 w-10 flex-col items-center justify-center focus:outline-none md:hidden pointer-events-auto"
+          className="relative z-[80] flex h-10 w-10 items-center justify-center focus:outline-none md:hidden pointer-events-auto"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
-          <div className="relative h-5 w-6">
-            <span
-              className={`absolute left-0 h-0.5 w-6 transition-all duration-300 ${buttonColor} ${
-                isMenuOpen ? "top-[9px] rotate-45" : "top-0"
-              }`}
-            />
-            <span
-              className={`absolute left-0 top-[9px] h-0.5 w-6 transition-all duration-300 ${buttonColor} ${
-                isMenuOpen ? "opacity-0 scale-x-0" : "opacity-100"
-              }`}
-            />
-            <span
-              className={`absolute left-0 h-0.5 w-6 transition-all duration-300 ${buttonColor} ${
-                isMenuOpen ? "top-[9px] -rotate-45" : "top-[18px]"
-              }`}
-            />
-          </div>
+          <Image
+            src={toolbarLogoSrc}
+            alt=""
+            aria-hidden="true"
+            width={36}
+            height={36}
+            unoptimized
+            className={`h-9 w-9 transition-transform duration-300 ease-out ${
+              isMenuOpen ? "-rotate-90" : "rotate-0"
+            }`}
+          />
         </button>
       </header>
 
       {/* Mobile Navigation Dropbar - Slides Down from Top */}
       <div
-        className={`fixed inset-x-0 top-0 z-[60] flex flex-col justify-between bg-black/95 px-6 pt-28 pb-12 text-[#fafafa] backdrop-blur-xl h-[100dvh] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] md:hidden ${
+        data-testid="mobile-navigation-dropbar"
+        className={`fixed inset-x-0 top-0 z-[60] flex h-[100dvh] flex-col justify-between px-6 pt-28 pb-12 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] md:hidden ${mobileMenuThemeClass} ${
           isMenuOpen
             ? "translate-y-0 opacity-100"
             : "-translate-y-full opacity-0 pointer-events-none"
@@ -302,15 +332,13 @@ export function TopToolbar() {
           >
             get in touch
           </a>
-          <a
-            href="/tqdat410/projects?folder=root%3Aprojects&view=preview"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/projects"
             onClick={() => setIsMenuOpen(false)}
             className="font-luxurious-roman text-2xl tracking-widest transition-colors hover:text-[#79c0ff]"
           >
             projects
-          </a>
+          </Link>
           <a
             href={content.social.github}
             target="_blank"
@@ -323,10 +351,12 @@ export function TopToolbar() {
 
           {/* CV Section */}
           <div className="pt-6 flex flex-col items-center space-y-2">
-            <span className="font-luxurious-roman text-xs tracking-widest uppercase text-slate-500">
+            <span
+              className={`font-luxurious-roman text-xs tracking-widest uppercase ${mobileMenuMutedTextClass}`}
+            >
               download cv
             </span>
-            <div className="flex items-center gap-3 font-luxurious-roman text-base uppercase tracking-widest text-[#fafafa]">
+            <div className="flex items-center gap-3 font-luxurious-roman text-base uppercase tracking-widest">
               <a
                 href={content.hero.resumeUrls.visual}
                 target="_blank"
@@ -336,7 +366,9 @@ export function TopToolbar() {
               >
                 Visual
               </a>
-              <span className="h-8 w-[1px] bg-slate-600 block shrink-0 -translate-y-[5px]" />
+              <span
+                className={`block h-8 w-px shrink-0 -translate-y-[5px] ${mobileMenuDividerClass}`}
+              />
               <a
                 href={content.hero.resumeUrls.ats}
                 target="_blank"
@@ -351,7 +383,9 @@ export function TopToolbar() {
         </div>
 
         {/* Footer Email */}
-        <div className="text-center font-luxurious-roman text-sm tracking-wide text-slate-500">
+        <div
+          className={`text-center font-luxurious-roman text-sm tracking-wide ${mobileMenuMutedTextClass}`}
+        >
           <a href={`mailto:${content.contact.email}`} className="hover:underline">
             {content.contact.email.toLowerCase()}
           </a>

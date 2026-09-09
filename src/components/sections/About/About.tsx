@@ -17,10 +17,8 @@ interface IntroSegment {
 const introSegments: IntroSegment[] = [
   { type: "text", value: "I'm " },
   { type: "highlight", value: "Tran Quoc Dat" },
-  { type: "text", value: ", a Software Engineering graduate from " },
-  { type: "highlight", value: "FPT University" },
-  { type: "text", value: ", based in " },
-  { type: "highlight", value: "Ho Chi Minh City" },
+  { type: "text", value: ", a " },
+  { type: "highlight", value: "Software Engineer" },
   {
     type: "text",
     value: ". I build practical web, mobile, and enterprise products, with hands-on ",
@@ -33,9 +31,9 @@ const introSegments: IntroSegment[] = [
   { type: "highlight", value: "AI Tools" },
   {
     type: "text",
-    value: " to move faster while keeping the work clean and reliable. I currently work as a ",
+    value: " to move faster while keeping the work clean and reliable. I currently work in ",
   },
-  { type: "highlight", value: "Software Engineer" },
+  { type: "highlight", value: "Ho Chi Minh City" },
   {
     type: "text",
     value: ", focused on turning ideas into useful products people can actually use.",
@@ -62,7 +60,7 @@ export function About() {
     .filter((group) => group.name.toLowerCase() === "coursera")
     .reduce((total, group) => total + (group.count ?? group.items.length), 0);
   const prompt = "tqdat410@portfolio ~ %";
-  const certificatesExplorerPath = "/tqdat410/certificates?file=certificates.md&view=preview";
+  const certificatesPath = "/certificates";
   const [siteOrigin] = useState(() =>
     typeof window !== "undefined" && window.location?.origin
       ? window.location.origin
@@ -452,13 +450,11 @@ export function About() {
                             <p>
                               See more:{" "}
                               <Link
-                                href={`${siteOrigin}${certificatesExplorerPath}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href={certificatesPath}
                                 className="text-[var(--brand-fg)] underline underline-offset-2"
                               >
                                 {siteOrigin}
-                                {certificatesExplorerPath}
+                                {certificatesPath}
                               </Link>
                             </p>
                           </div>
