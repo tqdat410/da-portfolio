@@ -8,7 +8,7 @@ interface ProjectPageProps {
   params: Promise<{ slug: string }>;
 }
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const projects = await getAllProjectDocs();
