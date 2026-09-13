@@ -38,12 +38,14 @@ describe("Navbar", () => {
       .querySelector("[data-nav-label]");
     const inactiveLink = screen.getByRole("link", { name: "About Me" });
     const inactiveLabel = inactiveLink.querySelector("[data-nav-label]");
-    const hoverUnderline = inactiveLink.querySelector("[data-nav-underline]");
+    const hoverFill = inactiveLink.querySelector("[data-nav-hover-fill]");
 
-    expect(activeLabel).toHaveClass("scale-110", "font-bold", "opacity-100", "duration-700");
-    expect(inactiveLabel).toHaveClass("scale-95", "font-normal", "opacity-55");
-    expect(inactiveLabel).toHaveClass("group-hover:opacity-90");
+    expect(activeLabel).toHaveClass("scale-110", "font-bold", "duration-700");
+    expect(inactiveLabel).toHaveClass("scale-95", "font-normal");
+    expect(inactiveLabel?.firstElementChild).toHaveClass("opacity-55");
     expect(inactiveLabel).not.toHaveClass("group-hover:scale-100");
-    expect(hoverUnderline).toHaveClass("scale-x-0", "group-hover:scale-x-100", "duration-500");
+    expect(hoverFill).toHaveClass("nav-hover-fill");
+    expect(hoverFill).toHaveAttribute("aria-hidden", "true");
+    expect(inactiveLink.querySelector("[data-nav-underline]")).toBeNull();
   });
 });

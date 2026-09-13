@@ -73,18 +73,16 @@ export function Navbar() {
           >
             <span
               data-nav-label
-              className={`relative inline-block origin-left transition-[transform,opacity] duration-700 ease-out ${
-                isActive
-                  ? "scale-110 font-bold opacity-100"
-                  : "scale-95 font-normal opacity-55 group-hover:opacity-90"
+              className={`relative inline-block origin-left transition-transform duration-700 ease-out ${
+                isActive ? "scale-110 font-bold" : "scale-95 font-normal"
               }`}
             >
-              {item.label}
-              <span
-                data-nav-underline
-                aria-hidden="true"
-                className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-500 ease-out group-hover:scale-x-100"
-              />
+              <span className={isActive ? "" : "opacity-55"}>{item.label}</span>
+              {!isActive && (
+                <span aria-hidden="true" data-nav-hover-fill className="nav-hover-fill">
+                  {item.label}
+                </span>
+              )}
             </span>
           </a>
         );

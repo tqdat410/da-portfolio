@@ -329,6 +329,19 @@ a,
   animation: nav-fade-in-left-inactive 0.8s ease-out forwards;
 }
 
+.nav-hover-fill {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.5s ease-out;
+}
+
+a:hover .nav-hover-fill,
+a:focus-visible .nav-hover-fill {
+  clip-path: inset(0);
+}
+
 /* TextType component */
 .text-type {
   display: inline-block;
