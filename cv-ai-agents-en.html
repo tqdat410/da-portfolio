@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tran Quoc Dat | AI-Agents Technical Intern</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+      :root {
+        --primary-color: #0f172a;
+        /* Slate 900 */
+        --secondary-color: #3b82f6;
+        /* Blue 500 */
+        --text-dark: #334155;
+        --text-light: #f8fafc;
+        --bg-sidebar: #1e293b;
+        /* Slate 800 */
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        background-color: #000000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 0;
+        font-size: 13.5px;
+        color: var(--text-dark);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .cv-container {
+        background-color: white;
+        width: 210mm;
+        height: 285mm;
+        display: grid;
+        grid-template-columns: 31% 69%;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* --- LEFT SIDEBAR --- */
+      .sidebar {
+        background-color: var(--bg-sidebar);
+        color: var(--text-light);
+        padding: 30px 20px 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        -webkit-print-color-adjust: exact;
+        /* Ensure background prints */
+        print-color-adjust: exact;
+        margin-bottom: 50px;
+      }
+
+      .avatar-container {
+        text-align: center;
+        margin-bottom: 5px;
+      }
+
+      .avatar {
+        width: 135px;
+        height: 135px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--secondary-color);
+        background-color: #fff;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      .sidebar-section h3 {
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--secondary-color);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 8px;
+        margin-bottom: 12px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-size: 12.5px;
+      }
+
+      .contact-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .contact-item i {
+        color: var(--secondary-color);
+        width: 16px;
+        text-align: center;
+        font-size: 13px;
+      }
+
+      .contact-item a {
+        color: var(--text-light);
+        text-decoration: none;
+        word-break: break-all;
+      }
+
+      .skill-group {
+        margin-bottom: 15px;
+      }
+
+      .skill-group:last-child {
+        margin-bottom: 0;
+      }
+
+      .skill-group h4 {
+        font-size: 13px;
+        margin-bottom: 6px;
+        color: #cbd5e1;
+        font-weight: 600;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .tag {
+        background-color: rgba(59, 130, 246, 0.15);
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+        color: #e2e8f0;
+        line-height: 1.3;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .edu-item {
+        margin-bottom: 0;
+      }
+
+      .edu-degree {
+        font-weight: 600;
+        font-size: 13.5px;
+        margin-bottom: 3px;
+        line-height: 1.3;
+      }
+
+      .edu-details-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2px;
+      }
+
+      .edu-school {
+        font-size: 12.5px;
+        color: #cbd5e1;
+        font-style: italic;
+      }
+
+      .edu-gpa-tag {
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 1px 6px;
+        border-radius: 3px;
+        font-size: 10px;
+        font-weight: 700;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .edu-year {
+        font-size: 11.5px;
+        color: #94a3b8;
+        text-align: left;
+        margin-top: 2px;
+      }
+
+      /* --- RIGHT MAIN CONTENT --- */
+      .main-content {
+        padding: 35px 35px 28px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .header {
+        margin-bottom: 5px;
+      }
+
+      .header h1 {
+        font-size: 30px;
+        font-weight: 800;
+        color: var(--primary-color);
+        line-height: 1.1;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        margin-bottom: 4px;
+      }
+
+      .header h2 {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--secondary-color);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+      }
+
+      .main-section h3 {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--primary-color);
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 6px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .main-section h3 i {
+        color: var(--secondary-color);
+        font-size: 15px;
+      }
+
+      .summary-text {
+        color: #475569;
+        line-height: 1.5;
+        text-align: justify;
+        font-size: 13px;
+      }
+
+      .project-group-title {
+        font-size: 13.5px;
+        color: var(--primary-color);
+        font-weight: 700;
+        margin: 12px 0 8px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-left: 3px solid var(--secondary-color);
+        padding-left: 10px;
+      }
+
+      .project-group-title:first-of-type {
+        margin-top: 0;
+      }
+
+      .project-item {
+        margin-bottom: 12px;
+      }
+
+      .project-item:last-child {
+        margin-bottom: 2px;
+      }
+
+      .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 3px;
+      }
+
+      .project-title {
+        font-weight: 700;
+        font-size: 13.5px;
+        color: var(--primary-color);
+      }
+
+      .project-role {
+        font-style: italic;
+        color: var(--secondary-color);
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .project-tech {
+        font-size: 11.5px;
+        color: #64748b;
+        margin-bottom: 4px;
+        font-weight: 500;
+      }
+
+      .project-desc ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .project-desc ul li {
+        position: relative;
+        padding-left: 12px;
+        margin-bottom: 3px;
+        color: #475569;
+        line-height: 1.4;
+        font-size: 12.5px;
+      }
+
+      .project-desc ul li::before {
+        content: "•";
+        color: var(--secondary-color);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 1.3;
+        top: 0;
+      }
+
+      /* CERTIFICATION LAYOUT */
+      .cert-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
+        gap: 25px;
+        margin-top: 5px;
+      }
+
+      .cert-col-right {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .cert-item {
+        font-size: 12.5px;
+        color: #475569;
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 4px;
+        line-height: 1.4;
+      }
+
+      .cert-item::before {
+        content: "✓";
+        color: var(--secondary-color);
+        font-weight: bold;
+        font-size: 12px;
+      }
+
+      .cert-item strong {
+        color: var(--primary-color);
+      }
+
+      .cert-sub {
+        display: block;
+        margin-left: 0;
+        font-size: 11.5px;
+        color: #64748b;
+        font-style: italic;
+        margin-top: 2px;
+      }
+
+      .cert-right-item {
+        line-height: 1.3;
+      }
+
+      .cert-right-name {
+        display: block;
+        font-weight: 700;
+        font-size: 12.5px;
+        color: var(--primary-color);
+      }
+
+      .cert-right-provider {
+        display: block;
+        font-size: 11.5px;
+        color: #94a3b8;
+        font-style: italic;
+        margin-top: 1px;
+      }
+
+      /* PRINT STYLES - OPTIMIZED FOR A4 PDF EXPORT */
+      @media print {
+        @page {
+          size: A4 portrait;
+          margin: 0;
+        }
+
+        html,
+        body {
+          width: 210mm;
+          height: 297mm;
+          background-color: white;
+          margin: 0 !important;
+          padding: 0 !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        .cv-container {
+          width: 210mm;
+          height: 297mm;
+          box-shadow: none;
+          margin: 0;
+          border: none;
+          display: grid;
+          grid-template-columns: 31% 69%;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+          page-break-after: avoid;
+          page-break-inside: avoid;
+        }
+
+        .sidebar,
+        .tag,
+        .edu-gpa-tag {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .cv-container {
+          grid-template-columns: 1fr;
+          height: auto;
+        }
+
+        .sidebar {
+          padding: 20px;
+          order: 2;
+        }
+
+        .main-content {
+          padding: 20px;
+          order: 1;
+        }
+
+        .cert-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .project-link {
+        color: inherit;
+        text-decoration: none;
+      }
+      .repo-link {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      a:focus-visible {
+        outline: 2px solid var(--secondary-color);
+        outline-offset: 3px;
+      }
+      .project-header {
+        flex-wrap: wrap;
+        column-gap: 8px;
+      }
+      .project-item,
+      .edu-item {
+        break-inside: avoid;
+      }
+      @media screen and (max-width: 768px) {
+        .cv-container {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="cv-container">
+      <!-- LEFT COLUMN -->
+      <aside class="sidebar">
+        <div class="avatar-container">
+          <img
+            src="https://res.cloudinary.com/do6szo7zy/image/upload/v1764227148/profile2_hwusuq.png"
+            alt="Tran Quoc Dat"
+            class="avatar"
+          />
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Contact</h3>
+          <div class="contact-item">
+            <i class="fas fa-globe"></i>
+            <a href="https://tranquocdat.com">tranquocdat.com</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:tqdat410@gmail.com">tqdat410@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+84 901 600 791</span>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-github"></i>
+            <a href="https://github.com/tqdat410">github.com/tqdat410</a>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-linkedin"></i>
+            <a href="https://linkedin.com/in/tqdat410">in/tqdat410</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Ho Chi Minh City, VN</span>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Education</h3>
+          <div class="edu-item">
+            <div class="edu-degree">Bachelor of Software Engineering</div>
+            <div class="edu-details-row">
+              <span class="edu-school">FPT University</span>
+              <span class="edu-gpa-tag">GPA: 3.75/4.0</span>
+            </div>
+            <div class="edu-year">2022 - 2026</div>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Skills</h3>
+          <div class="skill-group">
+            <h4>Main Practice</h4>
+            <div class="skill-tags">
+              <span class="tag">Java</span><span class="tag">Spring Boot</span
+              ><span class="tag">REST APIs</span><span class="tag">SQL</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Project Exposure</h4>
+            <div class="skill-tags">
+              <span class="tag">TypeScript</span><span class="tag">React / Next.js</span
+              ><span class="tag">PostgreSQL</span><span class="tag">Docker</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Development Tools</h4>
+            <div class="skill-tags">
+              <span class="tag">Git</span><span class="tag">Claude Code</span
+              ><span class="tag">Codex</span>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-section">
+          <h3>Languages</h3>
+          <div class="skill-tags">
+            <span class="tag">Vietnamese (Native)</span>
+            <span class="tag">English (Intermediate)</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN -->
+      <main class="main-content">
+        <header class="header">
+          <h1>Tran Quoc Dat</h1>
+          <h2>AI-Agents Technical Intern</h2>
+        </header>
+        <section class="main-section">
+          <h3><i class="fas fa-user" aria-hidden="true"></i> Profile</h3>
+          <p class="summary-text">
+            Recent Software Engineering graduate with a foundation in Java, Spring Boot, and web
+            application development. Through Hengout and smaller projects, gained practical exposure
+            to building APIs, working with databases, and integrating AI features. Use Claude Code
+            and Codex to support development. Seeking an internship to strengthen software
+            engineering skills and contribute to practical AI-agent applications.
+          </p>
+        </section>
+        <section class="main-section">
+          <h3><i class="fas fa-briefcase" aria-hidden="true"></i> Projects</h3>
+          <div class="project-group-title">Product Project</div>
+          <article class="project-item">
+            <div class="project-header">
+              <a class="project-title project-link" href="https://hengout.app">Hengout (iOS App)</a
+              ><span class="project-role">Tech Lead &amp; Backend</span>
+            </div>
+            <div class="project-desc">
+              <ul>
+                <li>
+                  Worked on a venue discovery app from development to App Store release,
+                  contributing to backend APIs and personalized recommendations.
+                </li>
+                <li>
+                  Used Spring Boot and PostgreSQL; gained project experience with OpenRouter, Kafka,
+                  Redis, Docker, and CI/CD while building and deploying the app.
+                </li>
+                <li>
+                  Worked with a small engineering team on technical decisions and integration. The
+                  startup received a 50 million VND scholarship from FPT University.
+                </li>
+              </ul>
+            </div>
+          </article>
+          <div class="project-group-title">Personal &amp; Academic Projects</div>
+          <article class="project-item">
+            <p class="summary-text">
+              Through personal and academic projects, practiced building backend services and web
+              tools with Python and TypeScript, integrating external APIs and LLM APIs, and working
+              with SQL databases. Built personal tools such as <strong>agentune</strong>, an MCP
+              music player, and <strong>codex-switch</strong>, a CLI for switching Codex accounts,
+              to explore coding-agent integrations and workflows. Also explored RAG, semantic
+              search, and TypeScript/Vite interfaces for viewing agent activity, and practiced
+              automated testing with pytest and source control with Git.
+            </p>
+            <p class="project-tech">
+              <a class="repo-link" href="https://github.com/tqdat410?tab=repositories"
+                >GitHub repositories: github.com/tqdat410</a
+              >
+            </p>
+          </article>
+        </section>
+        <section class="main-section">
+          <h3><i class="fas fa-building" aria-hidden="true"></i> Experience</h3>
+          <div class="project-item">
+            <div class="project-header">
+              <span class="project-title">FPT Software</span
+              ><span class="project-role">OJT Trainee</span>
+            </div>
+            <div class="project-tech">Jan 2025 - Apr 2025</div>
+            <p class="summary-text">
+              Completed an on-the-job training program in SAP ABAP. Practiced developing and
+              debugging reports, forms, and enhancements in an enterprise environment.
+            </p>
+          </div>
+        </section>
+        <section class="main-section">
+          <h3><i class="fas fa-certificate"></i> Certifications</h3>
+          <div class="cert-layout">
+            <!-- LEFT COLUMN -->
+            <div class="cert-col-left">
+              <div class="cert-item">
+                <span
+                  ><strong>Coursera (9 Certificates)</strong> including:
+                  <span class="cert-sub"
+                    >• Project Management Principles and Practices (UC Irvine)</span
+                  >
+                  <span class="cert-sub" style="margin-top: 2px"
+                    >• Software Development Lifecycle (Univ. of Minnesota)</span
+                  >
+                </span>
+              </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="cert-col-right">
+              <div class="cert-right-item">
+                <span class="cert-right-name">Certificate on the Job Training</span>
+                <span class="cert-right-provider">FPT Software</span>
+              </div>
+              <div class="cert-right-item">
+                <span class="cert-right-name">Short Course for Testing</span>
+                <span class="cert-right-provider">FPTU & FSoft</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
