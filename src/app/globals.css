@@ -32,6 +32,7 @@
 :root {
   --brand-bg: #0c0c0c;
   --brand-fg: #fafafa;
+  --nav-fill-duration: 220ms;
   --scrollbar-track: var(--brand-fg);
   --scrollbar-thumb: var(--brand-bg);
 
@@ -135,7 +136,7 @@ html {
 
 /* Reusable focus ring utility */
 .focus-ring {
-  @apply focus-visible:outline-2 focus-visible:outline-text-primary focus-visible:outline-offset-2;
+  @apply focus-visible:outline-2 focus-visible:outline-current focus-visible:outline-offset-2;
 }
 
 /* Reduced motion preference */
@@ -333,13 +334,19 @@ a,
   position: absolute;
   inset: 0;
   pointer-events: none;
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 0.5s ease-out;
+  clip-path: polygon(0 100%, 0 100%, 0 100%);
+  transition: clip-path var(--nav-fill-duration) ease-out;
 }
 
 a:hover .nav-hover-fill,
 a:focus-visible .nav-hover-fill {
-  clip-path: inset(0);
+  clip-path: polygon(0 -100%, 200% 100%, 0 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-hover-fill {
+    transition: none;
+  }
 }
 
 /* TextType component */

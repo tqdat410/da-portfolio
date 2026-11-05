@@ -1,6 +1,6 @@
 # Tran Quoc Dat
 
-> Tran Quoc Dat is a Software Engineering graduate from FPT University in Ho Chi Minh City, Vietnam. He builds practical web, mobile, and enterprise products, with hands-on SAP experience across ABAP, RAP, Fiori, UI5, OData, and S/4HANA.
+> Tran Quoc Dat is a Software Engineering graduate from FPT University and a Software Engineer based in Ho Chi Minh City, Vietnam. He learns through personal and team projects, working on problem solving and turning ideas into useful software.
 
 ## Profile
 
@@ -8,7 +8,7 @@
 - Location: Ho Chi Minh City, Vietnam
 - Education: Software Engineering, FPT University, 2022-2026
 - GPA: 3.75/4.0
-- Professional focus: software engineering, SAP technical development, full-stack product delivery, web and mobile applications
+- Professional focus: software engineering, learning through personal and team projects, and building useful software
 - Current portfolio: [Da'portfolio](https://tranquocdat.com/)
 - Selected projects: [My projects](https://tranquocdat.com/projects)
 - Certificates: [Credentials](https://tranquocdat.com/certificates)

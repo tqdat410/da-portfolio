@@ -194,15 +194,15 @@ describe("About Section", () => {
     jest.restoreAllMocks();
   });
 
-  it("renders improved intro with required highlighted keywords", () => {
+  it("introduces a software engineer without a technology-specific pitch", () => {
     render(<About />);
     const intro = screen.getByText("Tran Quoc Dat").closest("p");
     expect(intro).toHaveTextContent("a Software Engineer");
-    expect(intro).toHaveTextContent("I currently work in Ho Chi Minh City");
+    expect(intro).toHaveTextContent("based in Ho Chi Minh City");
     expect(intro).not.toHaveTextContent("FPT University");
     expect(screen.getByText("Ho Chi Minh City")).toBeInTheDocument();
-    expect(screen.getByText("SAP")).toBeInTheDocument();
-    expect(screen.getByText("AI Tools")).toBeInTheDocument();
+    expect(intro).not.toHaveTextContent(/SAP|ABAP|Java|TypeScript|AI Tools/);
+    expect(intro).toHaveTextContent("Through personal and team projects");
     expect(screen.getByText("Software Engineer")).toBeInTheDocument();
     expect(screen.queryByText("SAP Technical Consultant")).not.toBeInTheDocument();
   });

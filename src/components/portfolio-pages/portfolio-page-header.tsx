@@ -12,7 +12,7 @@ const navigation = [
 export function PortfolioPageHeader({ active }: PortfolioPageHeaderProps) {
   return (
     <header className="sticky top-0 z-30 h-[4.8125rem] border-b border-[var(--brand-bg)]/15 bg-[var(--brand-fg)] md:h-[4.75rem]">
-      <div className="mx-auto flex h-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-10">
+      <div className="mx-auto flex h-full max-w-4xl items-center justify-between gap-4 px-6">
         <Link
           href="/"
           className="focus-ring flex items-center font-luxurious-roman text-sm font-bold tracking-[-0.02em] text-[var(--brand-bg)] sm:text-base"

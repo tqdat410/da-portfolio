@@ -19,24 +19,12 @@ const introSegments: IntroSegment[] = [
   { type: "highlight", value: "Tran Quoc Dat" },
   { type: "text", value: ", a " },
   { type: "highlight", value: "Software Engineer" },
-  {
-    type: "text",
-    value: ". I build practical web, mobile, and enterprise products, with hands-on ",
-  },
-  { type: "highlight", value: "SAP" },
-  {
-    type: "text",
-    value: " experience across ABAP, RAP, Fiori, and UI5. I use ",
-  },
-  { type: "highlight", value: "AI Tools" },
-  {
-    type: "text",
-    value: " to move faster while keeping the work clean and reliable. I currently work in ",
-  },
+  { type: "text", value: " based in " },
   { type: "highlight", value: "Ho Chi Minh City" },
   {
     type: "text",
-    value: ", focused on turning ideas into useful products people can actually use.",
+    value:
+      ". I enjoy building things, understanding how they work, and learning along the way. Through personal and team projects, I'm gradually improving how I solve problems and turn ideas into useful software.",
   },
 ];
 
@@ -231,7 +219,7 @@ export function About() {
       <div className="w-full max-w-5xl mx-auto px-6 md:px-10">
         <p
           ref={introRef}
-          className={`max-w-4xl text-justify leading-8 md:leading-9 text-base md:text-lg text-[var(--brand-bg)] ${
+          className={`max-w-4xl text-left leading-8 md:leading-9 text-base md:text-lg text-[var(--brand-bg)] ${
             showIntro ? "opacity-100" : "opacity-0"
           }`}
         >
