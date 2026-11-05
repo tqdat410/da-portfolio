@@ -9,7 +9,8 @@ All public portfolio content is stored in the repository. Update the smallest ow
 | Content | Owner |
 |---|---|
 | Name, description, CV links | `src/content/site/hero.ts` |
-| Bio, education, experience, skills | `src/content/site/about.ts` |
+| About introduction | `src/components/sections/About/About.tsx` (`introSegments`) |
+| Profile details, education, experience, skills | `src/content/site/about.ts` |
 | Contact and social links | `src/content/site/contact.ts` |
 
 CV source files are `cv_en.html` and `cv_ats_en.html`; the public download URLs live in `src/content/site/hero.ts`. Keep those URLs synchronized when publishing new CV versions.
