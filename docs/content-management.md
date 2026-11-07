@@ -13,7 +13,7 @@ All public portfolio content is stored in the repository. Update the smallest ow
 | Profile details, education, experience, skills | `src/content/site/about.ts` |
 | Contact and social links | `src/content/site/contact.ts` |
 
-CV source files are `cv_en.html` and `cv_ats_en.html`; the public download URLs live in `src/content/site/hero.ts`. Keep those URLs synchronized when publishing new CV versions.
+CV sources live in `cvs/`, grouped into SAP ABAP, Software Engineer, and AI Agent profiles, each with `ats.html` as the primary version and `visual.html` as the presentation version. See [CV management](cv-management.md) for the file map, formatting, and export workflow. Public download URLs live in `src/content/site/hero.ts`; keep them synchronized when publishing new CV versions. Local edits do not update the hosted PDFs.
 
 ## Projects
 

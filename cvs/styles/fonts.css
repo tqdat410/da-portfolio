@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "CV Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/inter-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "CV Inter";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../assets/fonts/inter-latin-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "CV Inter";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../assets/fonts/inter-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "CV Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/inter-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "CV Inter";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../assets/fonts/inter-latin-400-italic.woff2") format("woff2");
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  font-family: "CV Inter", sans-serif;
+  font-synthesis: none;
+}
+body {
+  margin: 0;
+  background: #e5e7eb;
+}
+svg {
+  width: 1em;
+  height: 1em;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+a {
+  color: inherit;
+}
+a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+@media print {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

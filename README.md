@@ -15,7 +15,7 @@ Personal portfolio for Tran Quoc Dat, built with Next.js, React, TypeScript, and
 
 ## Local development
 
-Requirements: Node.js 22 or newer and npm. The repository `.nvmrc` selects Node.js 24.
+Requirements: Node.js 22.13 or newer and npm. The repository `.nvmrc` selects Node.js 24.
 
 ```bash
 npm ci

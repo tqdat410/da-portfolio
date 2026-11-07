@@ -16,6 +16,10 @@
 # local planning artifacts
 /plans/
 
+# Generated CV exports (HTML is the source)
+/cvs/pdf/
+/cvs/.pdf-stage-*/
+
 # next.js
 /.next/
 /.open-next/

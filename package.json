@@ -3,9 +3,12 @@
   "version": "0.1.1",
   "private": true,
   "engines": {
-    "node": ">=22"
+    "node": ">=22.13.0"
   },
   "scripts": {
+    "cv:pdf": "node scripts/export-cvs.mjs",
+    "cv:setup": "playwright-core install chromium",
+    "cv:check": "node scripts/check-cv-pdf.mjs",
     "dev": "next dev",
     "build": "next build",
     "build:worker": "cross-env GITHUB_GRAPHQL_TOKEN= GITHUB_TOKEN= opennextjs-cloudflare build",
@@ -35,6 +38,7 @@
     "yaml": "^2.8.1"
   },
   "devDependencies": {
+    "@napi-rs/canvas": "^1.1.0",
     "@opennextjs/cloudflare": "^1.20.6",
     "@tailwindcss/postcss": "^4.3.3",
     "@testing-library/jest-dom": "^6.9.1",
@@ -49,6 +53,9 @@
     "eslint-config-prettier": "^10.1.8",
     "jest": "^30.5.1",
     "jest-environment-jsdom": "^30.5.1",
+    "pdf-lib": "1.17.1",
+    "pdfjs-dist": "^6.5.438",
+    "playwright-core": "1.64.1",
     "prettier": "^3.9.6",
     "raw-loader": "^4.0.2",
     "tailwindcss": "^4.3.3",

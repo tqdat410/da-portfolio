@@ -1,0 +1,98 @@
+@import url("./fonts.css");
+
+:root {
+  --body-size: 10.5pt;
+  --small-size: 9.5pt;
+  --section-gap: 6pt;
+}
+body {
+  color: #111;
+  font-size: var(--body-size);
+  line-height: 1.32;
+}
+main {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 8mm auto;
+  padding: 13mm 14mm;
+  background: white;
+}
+h1 {
+  margin: 0 0 3pt;
+  font-size: 22pt;
+  line-height: 1.1;
+  font-weight: 700;
+}
+.target-role {
+  margin: 0 0 5pt;
+  font-weight: 600;
+  font-size: 11pt;
+}
+.contact {
+  margin: 1pt 0;
+  font-size: var(--small-size);
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+h2 {
+  margin: var(--section-gap) 0 3pt;
+  padding-bottom: 2pt;
+  border-bottom: 0.6pt solid #333;
+  font-size: 10.5pt;
+  line-height: 1.25;
+  text-transform: uppercase;
+  font-weight: 700;
+  break-after: avoid;
+}
+p {
+  margin: 0 0 3pt;
+}
+h3 {
+  margin: 0 0 2pt;
+  font-size: var(--body-size);
+  line-height: 1.3;
+  font-weight: 600;
+  break-after: avoid;
+}
+strong {
+  font-weight: 600;
+}
+.entry {
+  margin-bottom: 4pt;
+  break-inside: avoid;
+}
+.context,
+.dates,
+.project-tech {
+  font-size: var(--small-size);
+}
+ul {
+  margin: 3pt 0 0;
+  padding-left: 14pt;
+}
+li {
+  margin: 0 0 2pt;
+}
+.skills p {
+  margin-bottom: 3pt;
+}
+@media print {
+  main {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 793px) {
+  main {
+    width: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 6mm;
+  }
+  .contact {
+    overflow-wrap: anywhere;
+  }
+}
